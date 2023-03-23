@@ -2,10 +2,10 @@ import { createContext } from "react"
 
 
 export interface UserSearchContextProps {
-    place: string,
-    dates:{
-        checkIn: string,
-        checkOut: string
+    place?: string,
+    dates?:{
+        checkIn?: string,
+        checkOut?: string
     },
 }
 
