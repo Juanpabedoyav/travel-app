@@ -1,5 +1,5 @@
 import axios from "axios"
-// 
+
 export const searchHotels = (date_checkin: string ,date_checkout: string, location_id: string) =>{
   const options = {
     method: "GET",
@@ -9,9 +9,6 @@ export const searchHotels = (date_checkin: string ,date_checkout: string, locati
       sort_order: "HDR",
       date_checkin: date_checkin, //"2023-07-22",
       location_id:  location_id, //"3000035821",
-      star_rating_ids: "3.0,3.5,4.0,4.5,5.0",
-      amenities_ids: "FINTRNT,FBRKFST",
-      rooms_number: "1"
     },
     headers: {
       "X-RapidAPI-Key": "3039ed9becmsh30b3d62963b1ff4p1a6367jsnfe145e558f5a",
@@ -19,5 +16,4 @@ export const searchHotels = (date_checkin: string ,date_checkout: string, locati
     }
   }
   return axios.request(options)
-  
 }
