@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { HotelContext, HotelContextProps } from "./HotelContext"
-import { searchHotels } from "../../api/searchHotels"
+import { useContext,  useEffect, useState } from "react"
+import { HotelContext } from "./HotelContext"
+import { UserSearchContext } from "../UserSearch/UserSearchContext"
 
 interface HotelProviderProps {
     children: JSX.Element | JSX.Element[],
@@ -13,10 +13,11 @@ const INITIAL_STATE = {
 
 
 export const HotelProvider = ({children}:HotelProviderProps) => {
-  
+  const {place, dates} = useContext(UserSearchContext)
   
   // useEffect(() => {
-  //   // searchHotels("2023-07-22", "2023-07-23", "3000035821").then( response => setDataHotels(response.data.hotels))
+    
+  // searchHotels("2023-07-22", "2023-07-23", "3000035821").then( response => setDataHotels(response.data.hotels))
   // }, [])
     
   return (
