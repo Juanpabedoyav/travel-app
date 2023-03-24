@@ -29,9 +29,10 @@ export const FormSearch = () => {
     <FormSC onSubmit={handleSubmit}>
       <div className="field">
         <label htmlFor="place">Location</label>
-        <select name="place" id="place" onChange={handleInput} defaultValue={"United States"}>
+        <InputSC  name={"place"}type="search" list="place" autoComplete="on"onChange={handleInput} />
+        <datalist id="place">
           <OptionsLocations/>
-        </select>
+        </datalist>
       </div>
       <div className="field">
         <label htmlFor="checkIn">Check In</label>
