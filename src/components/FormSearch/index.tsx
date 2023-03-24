@@ -1,8 +1,7 @@
 import {  useContext, useRef, useState } from "react"
-import { FormSC, SectionFormSC } from "./styles"
+import { ButtonSearchSC, FormSC, InputSC } from "./styles"
 import { UserSearchState } from "../../context/UserSearch/UserSearchProvider"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
-
 export const FormSearch = () => {
   const {dispatch} = useContext(UserSearchContext)
   const [input, setInput] = useState<UserSearchState>()
@@ -24,22 +23,23 @@ export const FormSearch = () => {
     dispatch({type: "NEW_SEARCH", payload: input})
   }
   return (
-    <SectionFormSC>
-      <FormSC onSubmit={handleSubmit}>
-        <div>
-          <label>Place</label>
-          <input name={"place"}type="text" onChange={handleInput}/>
-        </div>
-        <div>
-          <label>Check In</label>
-          <input name={"checkIn"} type="date"onChange={handleInput} />
-        </div>
-        <div>
-          <label>Check Out</label>
-          <input name={"checkOut"} type="date" onChange={handleInput}/>
-        </div>
-        <button>Search</button>
-      </FormSC>
-    </SectionFormSC> 
+    <FormSC onSubmit={handleSubmit}>
+      <div className="field">
+        <label htmlFor="place">Location</label>
+        <InputSC name={"place"}type="text" onChange={handleInput} placeholder="United States"/>
+      </div>
+      <div className="field">
+        <label htmlFor="checkIn">Check In</label>
+        <InputSC name={"checkIn"} type="date"onChange={handleInput} />
+      </div>
+      <div className="field">
+        <label htmlFor="checkOut">Check Out</label>
+        <InputSC name={"checkOut"} type="date" onChange={handleInput}/>
+      </div>
+      <div className={"buttonSearch"}>
+        <ButtonSearchSC>Search</ButtonSearchSC>
+      </div>
+    </FormSC>
+    
   )
 }
