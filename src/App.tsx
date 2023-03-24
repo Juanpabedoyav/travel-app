@@ -1,8 +1,9 @@
+import { FormSearch } from "./components/FormSearch"
 
 function App() {
   return (
     <div className="app">
-        hola mundo
+      <FormSearch/> 
     </div>
   )
 }
