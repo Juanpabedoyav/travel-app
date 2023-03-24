@@ -12,7 +12,7 @@ export const SectionFormSC = styled.section`
     max-width: 80%;
     min-width: 80%;
     border-radius: 3rem;
-    height: 656px;
+    height: 500px;
     img{
         border-radius: 0.1rem 3rem 3rem 0.1rem;
         display: block;
@@ -35,7 +35,6 @@ export const SectionFormSC = styled.section`
         }
     }
 `
-
 export const FormSC = styled.form`
     position: absolute;
     top: 80%;
@@ -44,9 +43,12 @@ export const FormSC = styled.form`
     padding-left: 1rem;
     width: 70%;
     margin: 0 auto;
-    box-shadow: 0 0 0.5rem 0.1rem #000000;
+    box-shadow: 0 6px 6px  rgba(0, 0, 0, 0.4);
     border-radius: 3rem;
-    background-color: #fff ;
+    background: linear-gradient(
+        ${props => props.theme.colors.secondary[400]},
+        ${props => props.theme.colors.secondary[200]},
+        ${props => props.theme.colors.secondary[100]});
     height: 80px;
     display: flex;
     gap: 1rem;
@@ -56,11 +58,30 @@ export const FormSC = styled.form`
     .buttonSearch{
         height: 100%;
     }
+    .field{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        width: 100%;
+    }
+    div:nth-child(2),div:nth-child(3){
+        border-left: 1px solid ${props => props.theme.colors.secondary[700]};
+    }
     label{
+        text-align: center;
         margin: 0.5rem;
     }
-`
 
+`
+export const InputSC = styled.input`
+    border: none;
+    height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    ::placeholder{
+        text-align: center;
+    }
+`
 export const ButtonSearchSC = styled.button`
     border-radius:3rem ;
     height: 100%;
