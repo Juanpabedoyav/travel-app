@@ -5,10 +5,10 @@ export const SectionFormSC = styled.section`
     margin: 1rem auto;
     background: linear-gradient(
         -30deg,
-        ${props => props.theme.colors.main[300]},
-        ${props => props.theme.colors.main[100]}, 
+        ${props => props.theme.colors.main[200]},
         ${props => props.theme.colors.main[100]});
     width: 80%;
+    
     max-width: 80%;
     min-width: 80%;
     border-radius: 3rem;
@@ -23,6 +23,7 @@ export const SectionFormSC = styled.section`
         object-fit: cover;
     }
     .banner{
+        opacity: 0.8;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
