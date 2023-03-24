@@ -3,7 +3,11 @@ import styled from "styled-components"
 export const SectionFormSC = styled.section`
     position: relative;
     margin: 1rem auto;
-    background-color:#00c66d;
+    background: linear-gradient(
+        -30deg,
+        ${props => props.theme.colors.main[300]},
+        ${props => props.theme.colors.main[100]}, 
+        ${props => props.theme.colors.main[100]});
     width: 80%;
     max-width: 80%;
     min-width: 80%;
@@ -38,9 +42,7 @@ export const FormSC = styled.form`
     left: 0%;
     right: 0%;
     padding-left: 1rem;
-    width: 80%;
-    max-width: 80%;
-    min-width: 80%;
+    width: 70%;
     margin: 0 auto;
     box-shadow: 0 0 0.5rem 0.1rem #000000;
     border-radius: 3rem;
@@ -64,4 +66,19 @@ export const ButtonSearchSC = styled.button`
     height: 100%;
     width: 200px;
     cursor: pointer;
+    border: none;
+    background: linear-gradient(
+        ${props => props.theme.colors.main[600]},
+        ${props => props.theme.colors.main[500]},
+        ${props => props.theme.colors.main[500]},
+        ${props => props.theme.colors.main[500]});
+ :hover{
+    background:linear-gradient(
+        -50deg,
+        ${props => props.theme.colors.main[600]},
+        ${props => props.theme.colors.main[300]},
+        ${props => props.theme.colors.main[200]},
+        ${props => props.theme.colors.main[200]});
+    border: 2px solid ${props => props.theme.colors.main[500]};
+ }
 `

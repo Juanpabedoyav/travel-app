@@ -1,7 +1,7 @@
-export const theme = {
-  border:{
-    radius: "4px",
-  },
+import { DefaultTheme } from "styled-components"
+
+export const theme : DefaultTheme = {
+  borderRadius: "4px",
   // Colors
   colors:{
     main: {
@@ -27,12 +27,4 @@ export const theme = {
       900: "#323232"
     },
   },
-  typography: {
-    h1:{},
-    h2:{},
-    h3:{},
-    h4:{},
-    h5:{},
-    h6:{},
-  }
 }
