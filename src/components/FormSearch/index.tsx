@@ -1,9 +1,11 @@
-import {  useRef, useState } from "react"
-import {  UserSearchContextProps } from "../../context/UserSearch/UserSearchContext"
+import {  useContext, useRef, useState } from "react"
 import { FormSC, SectionFormSC } from "./styles"
+import { UserSearchState } from "../../context/UserSearch/UserSearchProvider"
+import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 
 export const FormSearch = () => {
-  const [input, setInput] = useState<UserSearchContextProps>()
+  const {dispatch} = useContext(UserSearchContext)
+  const [input, setInput] = useState<UserSearchState>()
   const debounceRef = useRef<NodeJS.Timeout>()
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +21,7 @@ export const FormSearch = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(input)
+    dispatch({type: "NEW_SEARCH", payload: input})
   }
   return (
     <SectionFormSC>
