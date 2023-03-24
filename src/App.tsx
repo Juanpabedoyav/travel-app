@@ -1,9 +1,9 @@
-import { FormSearch } from "./components/FormSearch"
+import { Home } from "./screens/Home"
 
 function App() {
   return (
     <div className="app">
-      <FormSearch/> 
+      <Home/> 
     </div>
   )
 }
