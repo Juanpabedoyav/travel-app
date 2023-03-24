@@ -1,8 +1,7 @@
 import {  useContext, useRef, useState } from "react"
-import { FormSC, SectionFormSC } from "./styles"
+import { ButtonSearchSC, FormSC, SectionFormSC } from "./styles"
 import { UserSearchState } from "../../context/UserSearch/UserSearchProvider"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
-
 export const FormSearch = () => {
   const {dispatch} = useContext(UserSearchContext)
   const [input, setInput] = useState<UserSearchState>()
@@ -25,6 +24,10 @@ export const FormSearch = () => {
   }
   return (
     <SectionFormSC>
+      <div className={"banner"}>
+        <p>Find your perfect place to stay</p>
+        <img src={"https://res.cloudinary.com/dflxhnzgs/image/upload/v1679621329/image_y2u0u0.png"} alt="logo" />
+      </div>
       <FormSC onSubmit={handleSubmit}>
         <div>
           <label>Place</label>
@@ -38,7 +41,9 @@ export const FormSearch = () => {
           <label>Check Out</label>
           <input name={"checkOut"} type="date" onChange={handleInput}/>
         </div>
-        <button>Search</button>
+        <div className={"buttonSearch"}>
+          <ButtonSearchSC>Search</ButtonSearchSC>
+        </div>
       </FormSC>
     </SectionFormSC> 
   )
