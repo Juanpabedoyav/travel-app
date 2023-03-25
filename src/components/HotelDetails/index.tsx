@@ -70,53 +70,59 @@ export const HotelDetails = () => {
           
         </InfoReservationSc>
         <FormReservationSc ref={form} onSubmit={sendEmail}>
-          <label htmlFor="checkIn">check-In:</label>
-          <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn}/>
-          <label htmlFor="checkOut">check-Out: </label>
-          <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut}/>
+          <label htmlFor="checkIn">check-In:
+            <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn}/>
+          </label>
+          <label htmlFor="checkOut">check-Out: 
+            <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut}/>
+          </label>
+          <label htmlFor="checkIn">1 Roomm
+            <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn}/>
+          </label>
+          <label htmlFor="checkOut">2 Roomms 
+            <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut}/>
+          </label>
+          <label htmlFor="checkOut">3+ Rooms 
+            <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut}/>
+          </label>
+          <hr></hr>
           <div className="field">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Name:</label>
             <input type="text" name="to_name" id="to_name"  required/>
-          </div>
-          <div className="field">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lastName">Last Name:</label>
             <input type="text" name="lastName" id="lastName"  required/>
           </div>
           <div className="field">
             <label htmlFor="birthdate">Birthdate:</label>
             <input type="date" name="birthdate" id="birthdate"  required/>
+            <label htmlFor="gender">Gender:</label>
+            <select name="gender" id="gender">
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+            </select>
+            
           </div>
           <div className="field">
-            <label htmlFor="gender">gender</label>
-            <input type="text" name="gender" id="gender"  required/>
-          </div>
-    
-          <div className="field">
-            <label htmlFor="documentType">Document Type</label>
+            <label htmlFor="documentType">Document Type:</label>
             <input type="text" name="documentType" id="documentType" required />
-          </div>
-          <div className="field">
             <label htmlFor="documentNumber">Document ID:</label>
             <input type="number" name="documentNumber" id="documentNumber" required />
           </div>
           <div className="field">
-            <label htmlFor="email">email</label>
+            <label htmlFor="email">Email:</label>
             <input type="email" name="email" id="email"  required/>
-          </div>
-       
-          <div className="field">
-            <label htmlFor="telephone">telephone</label>
+            <label htmlFor="telephone">Telephone:</label>
             <input type="tel" name="telephone" id="telephone"  required/>
           </div>
-          <div className="field">
+          <h1>Emergency Contact</h1>
+          <div className="field emergency--field">
             <label htmlFor="emergency">Emergency Contact</label>
             <input type="tel" name="emergency" id="emergency"  required/>
-          </div>
-          <div className="field">
-            <label htmlFor="telephoneEmegergency">telephone</label>
+            <label htmlFor="telephoneEmegergency">Telephone:</label>
             <input type="tel" name="telephoneEmegergency" id="telephoneEmegergency"  required/>
           </div>
           <button type="submit">reservar</button>
+
         </FormReservationSc>
       </SectionReservationSc>
 
