@@ -25,7 +25,7 @@ export const HotelsList = () => {
         date_checkout: checkOut,//"2023-07-23",
         sort_order: "HDR",
         date_checkin: checkIn, //"2023-07-22",
-        location_id:  "3000035821", //"3000035821",
+        location_id:  infoId, //"3000035821",
       },
       headers: {
         "X-RapidAPI-Key": "5ec8346cb7msh68282be38a182bap1b201bjsnb5f02a71d620",
@@ -47,7 +47,6 @@ export const HotelsList = () => {
     setTimeout(() => {
       getHotels()
     }, 500)
-    console.log(hotelsData)
   },[place])
 
   
