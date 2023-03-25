@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 import  { useRef } from "react"
 import emailjs from "@emailjs/browser"
-import { FormReservationSc, SectionHotelDetailsSc, SectionReservationSc } from "./styles"
+import { FormReservationSc, InfoReservationSc, SectionHotelDetailsSc, SectionReservationSc } from "./styles"
 
 export const HotelDetails = () => {
   const form = useRef<HTMLFormElement>(null)
@@ -40,16 +40,35 @@ export const HotelDetails = () => {
       <section className="hotel-details-images">
         <img className= {"details-image"} src={hotel?.media.url} alt={hotel?.name} loading="lazy"/>
         <div className="hotel-details--othersimages">
-          <img src={hotel?.thumbnailUrl} height={50} width={50} alt={hotel?.name} loading="lazy"/>
-          <img src={hotel?.thumbnailUrl} height={50} width={50} alt={hotel?.name} loading="lazy"/>
-          <img src={hotel?.thumbnailUrl} height={50} width={50} alt={hotel?.name} loading="lazy"/>
-          <img src={hotel?.thumbnailUrl}height={50} width={50}  alt={hotel?.name} loading="lazy"/>
+          <img src={hotel?.media.url} alt={hotel?.name} loading="lazy"/>
+          <img src={hotel?.media.url} alt={hotel?.name} loading="lazy"/>
+          <img src={hotel?.media.url} alt={hotel?.name} loading="lazy"/>
+          <img src={hotel?.media.url} alt={hotel?.name} loading="lazy"/>
         </div>
       </section>
 
 
 
       <SectionReservationSc >
+        <InfoReservationSc >
+          <h2>Reservation</h2>
+          <h1>{hotel?.name}</h1>
+          <hr></hr>
+          <ul  className="info-reservation">
+            <li>🧑‍⚕️ Work area</li>
+            <li>🛬 Autonomous arrival</li>
+            <li>🔑 Make your arrival easy by using the key safe.</li>
+            <li>📆 Free cancellation before {checkIn}</li>
+          </ul>
+          <hr></hr>
+          <h2>Hotel Features</h2>
+          <ul  className="hotel-features">
+            <li>🛬 Autonomous arrival</li>
+            <li>🔑 Make your arrival easy by using the key safe.</li>
+            <li>📆 Free cancellation before {checkIn}</li>
+          </ul>
+          
+        </InfoReservationSc>
         <FormReservationSc ref={form} onSubmit={sendEmail}>
           <label htmlFor="checkIn">check-In:</label>
           <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn}/>

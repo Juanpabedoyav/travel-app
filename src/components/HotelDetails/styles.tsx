@@ -24,7 +24,7 @@ export const SectionHotelDetailsSc = styled.section`
     height: 500px;
     gap:1rem;
     .details-image{
-      width: 100%;
+      width: 60%;
       object-fit: cover;
       height: 100%;
       border-radius: 1rem 0 0 1rem;
@@ -38,9 +38,10 @@ export const SectionHotelDetailsSc = styled.section`
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    width: 50%;
     img{
       object-fit: cover;
-      width: auto;
+      width: 48%;
       height: 242px;
       cursor: pointer;
       &:hover{
@@ -53,9 +54,11 @@ export const SectionHotelDetailsSc = styled.section`
 
 
 export const SectionReservationSc = styled.section`
-border: 1px solid #ccc;
-padding: 1rem;
-
+width: 100%;
+margin: 2rem auto;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 `
 
 export const FormReservationSc = styled.form`
@@ -75,4 +78,29 @@ export const FormReservationSc = styled.form`
   line-height: 1.5;
   font-size: 14px;
 }
+`
+
+export const InfoReservationSc = styled.div`
+  width: 60%;
+  hr{
+    margin: 1rem 0;
+    width: 90%;
+  }
+  .info-reservation{
+    list-style: none;
+    padding: 2rem;
+  li{
+    margin: 0.8rem;
+  }
+  }
+  .hotel-features{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 2rem;
+  li{
+    margin: 0.8rem;
+  }
+  }
+
 `
