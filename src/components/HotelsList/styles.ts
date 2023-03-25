@@ -6,9 +6,25 @@ display: flex;
 flex-wrap: wrap;
 justify-content: center;
 gap: 1rem;
+.card-hotels{
+    width: 260px;
+    height: 350px;
+    text-decoration: none;
+    section{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+
+    }
+}
 `
 export const CardSc = styled.article`
-border: 1px solid black;
-width: 300px;
-height: 300px;
+
+img{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
 `
