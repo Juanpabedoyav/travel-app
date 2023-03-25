@@ -37,7 +37,7 @@ export const HotelDetails = () => {
         <FormReservationSc ref={form} onSubmit={sendEmail}>
           <label htmlFor="checkIn">check-In:</label>
           <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn}/>
-          <label htmlFor="checkOut">check-Out: ª</label>
+          <label htmlFor="checkOut">check-Out: </label>
           <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut}/>
           <div className="field">
             <label htmlFor="name">Name</label>
@@ -73,7 +73,14 @@ export const HotelDetails = () => {
             <label htmlFor="telephone">telephone</label>
             <input type="tel" name="telephone" id="telephone"  required/>
           </div>
-
+          <div className="field">
+            <label htmlFor="emergency">Emergency Contact</label>
+            <input type="tel" name="emergency" id="emergency"  required/>
+          </div>
+          <div className="field">
+            <label htmlFor="telephoneEmegergency">telephone</label>
+            <input type="tel" name="telephoneEmegergency" id="telephoneEmegergency"  required/>
+          </div>
           <button type="submit">reservar</button>
         </FormReservationSc>
       </SectionReservationSc>
