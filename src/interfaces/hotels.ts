@@ -37,10 +37,12 @@ export interface PolygonPoint {
 }
 
 export interface Hotel {
-    pclnId?:                  string;
-    hotelType?:               string;
+    hotelId:                  string;
+    name:                     string;
+    brand:                    string;
     starRating:               number;
     location:                 Location;
+    thumbnailUrl:             string;
     hotelFeatures:            HotelFeatures;
     overallGuestRating:       number;
     totalReviewCount:         number;
@@ -49,17 +51,11 @@ export interface Hotel {
     allInclusiveRateProperty: boolean;
     displayRank:              number;
     recmdScore:               number;
-    dealTypes?:               string[];
-    bedChoiceAvailable?:      boolean;
+    dealTypes:                string[];
     merchandising:            Merchandising;
-    badges?:                  Badge[];
+    media:                    Media;
+    keyFeatures:              string[];
     globalDealScore:          number;
-    hotelId?:                 string;
-    name?:                    string;
-    brand?:                   string;
-    thumbnailUrl?:            string;
-    media?:                   Media;
-    keyFeatures?:             string[];
 }
 
 export interface Badge {
