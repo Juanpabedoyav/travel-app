@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom"
 import { HotelContext } from "../../context/Hotels/HotelContext"
-import { MutableRefObject, useContext } from "react"
+import { useContext } from "react"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 import  { useRef } from "react"
 import emailjs from "@emailjs/browser"
+import { FormReservationSc, SectionReservationSc } from "./styles"
 
 export const HotelDetails = () => {
   const form = useRef<HTMLFormElement>(null)
@@ -28,52 +29,54 @@ export const HotelDetails = () => {
   return (
     <div style={{display:"flex", flexDirection: "column"}}>
       <section>
-        
+    
         <h1>{hotel?.name}</h1>
         <p>{hotel?.brand}</p>
       </section>
-      <section >
-        <form ref={form} onSubmit={sendEmail}>
-          <p>{checkIn}</p>
-          <p>{checkOut}</p>
-          <div>
+      <SectionReservationSc >
+        <FormReservationSc ref={form} onSubmit={sendEmail}>
+          <label htmlFor="checkIn">check-In:</label>
+          <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn}/>
+          <label htmlFor="checkOut">check-Out: ª</label>
+          <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut}/>
+          <div className="field">
             <label htmlFor="name">Name</label>
-            <input type="text" name="name" id="name"  />
+            <input type="text" name="to_name" id="to_name"  required/>
           </div>
-          <div>
+          <div className="field">
             <label htmlFor="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName"  />
+            <input type="text" name="lastName" id="lastName"  required/>
           </div>
-          <div>
-            <label htmlFor="date">Date:</label>
-            <input type="text" name="date" id="date"  />
+          <div className="field">
+            <label htmlFor="birthdate">Birthdate:</label>
+            <input type="date" name="birthdate" id="birthdate"  required/>
           </div>
-          <div>
+          <div className="field">
             <label htmlFor="gender">gender</label>
-            <input type="text" name="gender" id="gender"  />
+            <input type="text" name="gender" id="gender"  required/>
           </div>
     
-          <div>
+          <div className="field">
             <label htmlFor="documentType">Document Type</label>
-            <input type="text" name="documentType" id="documentType"  />
+            <input type="text" name="documentType" id="documentType" required />
           </div>
-          <div>
+          <div className="field">
             <label htmlFor="documentNumber">Document ID:</label>
-            <input type="text" name="documentNumber" id="documentNumber"  />
+            <input type="number" name="documentNumber" id="documentNumber" required />
           </div>
-          <div>
+          <div className="field">
             <label htmlFor="email">email</label>
-            <input type="text" name="email" id="email"  />
+            <input type="email" name="email" id="email"  required/>
           </div>
        
-          <div>
+          <div className="field">
             <label htmlFor="telephone">telephone</label>
-            <input type="text" name="telephone" id="telephone"  />
+            <input type="tel" name="telephone" id="telephone"  required/>
           </div>
 
           <button type="submit">reservar</button>
-        </form>
-      </section>
+        </FormReservationSc>
+      </SectionReservationSc>
 
     </div>
   )
