@@ -3,8 +3,8 @@ import styled from "styled-components"
 export const SectionHotelDetailsSc = styled.section`
   margin: 2rem auto;
   display: flex;
-  width: 80%;
   flex-direction: column;
+  width: 80%;
   .hotel-details{
     margin:  1rem 0;
     font-size: 1.1rem;
@@ -24,7 +24,7 @@ export const SectionHotelDetailsSc = styled.section`
     height: 500px;
     gap:1rem;
     .details-image{
-      width: 500px;
+      width: 100%;
       object-fit: cover;
       height: 100%;
       border-radius: 1rem 0 0 1rem;
@@ -40,7 +40,7 @@ export const SectionHotelDetailsSc = styled.section`
     gap: 1rem;
     img{
       object-fit: cover;
-      width: 210px;
+      width: auto;
       height: 242px;
       cursor: pointer;
       &:hover{
