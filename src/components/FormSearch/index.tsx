@@ -58,7 +58,7 @@ export const FormSearch = () => {
     setTimeout(() => {
       getHotels()
     }, 200)
-  },[place])
+  },[place, checkIn, checkOut])
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement> | any) => {
     if(debounceRef.current) clearTimeout(debounceRef.current)
