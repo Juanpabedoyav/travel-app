@@ -79,18 +79,18 @@ export const FormSearch = () => {
     <FormSC onSubmit={handleSubmit}>
       <div className="field">
         <label htmlFor="place">Location</label>
-        <InputSC  name={"place"}type="search" list="place" autoComplete="on" onChange={handleInput} />
+        <InputSC  name={"place"}type="search" list="place" autoComplete="on" onChange={handleInput} placeholder="United States" required/>
         <datalist id="place">
           <OptionsLocations/>
         </datalist>
       </div>
       <div className="field">
         <label htmlFor="checkIn">Check In</label>
-        <InputSC  id="checkIn" name={"checkIn"} type="date" onChange={handleInput} />
+        <InputSC  id="checkIn" name={"checkIn"} type="date" onChange={handleInput} required/>
       </div>
       <div className="field">
         <label htmlFor="checkOut">Check Out</label>
-        <InputSC id="checkOut" name={"checkOut"} type="date" onChange={handleInput}/>
+        <InputSC id="checkOut" name={"checkOut"} type="date" onChange={handleInput} required/>
       </div>
       <div className={"buttonSearch"}>
         <ButtonSearchSC>Search</ButtonSearchSC>

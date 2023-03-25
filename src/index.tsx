@@ -1,11 +1,11 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import "./index.css"
-import App from "./App"
 import { HotelProvider } from "./context/Hotels/HotelProvider"
 import { UserSearchProvider } from "./context/UserSearch/UserSearchProvider"
 import { ThemeProvider } from "styled-components"
 import { theme } from "./styles/theme"
+import { AppRouter } from "./router"
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,7 +15,7 @@ root.render(
     <ThemeProvider theme={theme}>
       <UserSearchProvider>
         <HotelProvider>
-          <App />
+          <AppRouter />
         </HotelProvider>
       </UserSearchProvider>
     </ThemeProvider>
