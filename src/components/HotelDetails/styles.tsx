@@ -81,7 +81,7 @@ export const FormReservationSc = styled.form`
   flex-direction: row;
   justify-content: space-between;
   min-width: 250px;
-
+  gap: 0.4rem;
 }
 .emergency--field{
   display: flex;
@@ -116,8 +116,8 @@ button{
   font-size: 1.2rem;
   font-weight: 600;
   width: 80%;
-  margin: 0 auto;
-  height: 2rem;
+  margin: 0.5rem auto;
+  height: 47px;
   background: linear-gradient(
         ${props => props.theme.colors.main[600]},
         ${props => props.theme.colors.main[500]},
@@ -137,6 +137,38 @@ button{
  }
 
 }
+
+hr{
+    margin: 1rem 0;
+  }
+`
+export const ReservationDatesSc = styled.div`
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+    input {
+      outline: none;
+      border: none;
+      display:block;
+      padding: 0.2rem;
+    }
+  label {
+    display: block;
+    margin: 0 auto;
+    font-weight: 800;
+  }
+ .reservations-dates--checkIn{
+  display: inline-block;
+  border-radius: 1rem 0 0rem 0; 
+  padding: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .reservations-dates--checkOut{
+    display: inline-block;
+    border-radius: 0 1rem 0 0 ; 
+    padding: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
 `
 
 export const InfoReservationSc = styled.div`

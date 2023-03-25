@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 import  { useRef } from "react"
 import emailjs from "@emailjs/browser"
-import { FormReservationSc, InfoReservationSc, SectionHotelDetailsSc, SectionReservationSc } from "./styles"
+import { FormReservationSc, InfoReservationSc, ReservationDatesSc, SectionHotelDetailsSc, SectionReservationSc } from "./styles"
 
 export const HotelDetails = () => {
   const form = useRef<HTMLFormElement>(null)
@@ -70,12 +70,20 @@ export const HotelDetails = () => {
           
         </InfoReservationSc>
         <FormReservationSc ref={form} onSubmit={sendEmail}>
-          <label htmlFor="checkIn">check-In:
-            <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn}/>
-          </label>
-          <label htmlFor="checkOut">check-Out: 
-            <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut}/>
-          </label>
+          {/* Reservation dates */}
+          <ReservationDatesSc>
+            {/* checkIn */}
+            <div className="reservations-dates--checkIn">
+              <label  className="checkIn" htmlFor="checkIn">check-In:</label>
+              <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn} disabled/>
+            </div>
+            {/* checkOut */}
+            <div className="reservations-dates--checkOut">
+              <label  className="checkOut" htmlFor="checkOut">check-Out: </label>
+              <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut} disabled/>
+            </div>
+          </ReservationDatesSc>
+          {/* Reservation Rooms */}
           <label htmlFor="checkIn">1 Roomm
             <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn}/>
           </label>
@@ -114,6 +122,7 @@ export const HotelDetails = () => {
             <label htmlFor="telephone">Telephone:</label>
             <input type="tel" name="telephone" id="telephone"  required/>
           </div>
+          <hr></hr>
           <h1>Emergency Contact</h1>
           <div className="field emergency--field">
             <label htmlFor="emergency">Emergency Contact</label>
