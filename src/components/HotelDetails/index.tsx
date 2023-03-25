@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 import  { useRef } from "react"
 import emailjs from "@emailjs/browser"
-import { FormReservationSc, SectionReservationSc } from "./styles"
+import { FormReservationSc, SectionHotelDetailsSc, SectionReservationSc } from "./styles"
 
 export const HotelDetails = () => {
   const form = useRef<HTMLFormElement>(null)
@@ -27,12 +27,28 @@ export const HotelDetails = () => {
 
 
   return (
-    <div style={{display:"flex", flexDirection: "column"}}>
-      <section>
-    
+    <SectionHotelDetailsSc>
+      <section className="hotel-details">
         <h1>{hotel?.name}</h1>
         <p>{hotel?.brand}</p>
+        <div className="hotel-deails-reviews">
+          <p>⭐{hotel?.starRating}</p>
+          <p>{hotel?.totalReviewCount} Reviews</p>
+        </div>
       </section>
+
+      <section className="hotel-details-images">
+        <img className= {"details-image"} src={hotel?.media.url} alt={hotel?.name} loading="lazy"/>
+        <div className="hotel-details--othersimages">
+          <img src={hotel?.thumbnailUrl} height={50} width={50} alt={hotel?.name} loading="lazy"/>
+          <img src={hotel?.thumbnailUrl} height={50} width={50} alt={hotel?.name} loading="lazy"/>
+          <img src={hotel?.thumbnailUrl} height={50} width={50} alt={hotel?.name} loading="lazy"/>
+          <img src={hotel?.thumbnailUrl}height={50} width={50}  alt={hotel?.name} loading="lazy"/>
+        </div>
+      </section>
+
+
+
       <SectionReservationSc >
         <FormReservationSc ref={form} onSubmit={sendEmail}>
           <label htmlFor="checkIn">check-In:</label>
@@ -85,6 +101,6 @@ export const HotelDetails = () => {
         </FormReservationSc>
       </SectionReservationSc>
 
-    </div>
+    </SectionHotelDetailsSc>
   )
 }
