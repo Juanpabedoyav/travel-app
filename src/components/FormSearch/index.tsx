@@ -57,7 +57,7 @@ export const FormSearch = () => {
     generateIdLocation()
     setTimeout(() => {
       getHotels()
-    }, 200)
+    },)
   },[place, checkIn, checkOut])
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement> | any) => {
