@@ -15,12 +15,12 @@ export const HotelsList = () => {
       <SectionHotelsSc>
         {
           hotels?.slice(0,15).map((hotel) => (
-            <a href={`/${hotel.hotelId}`} key={hotel.hotelId}>
+            <Link to={`/detail/${hotel.hotelId}`} key={hotel.hotelId}>
               <CardSc >
                 <h1>{hotel.name}</h1>
                 <p>{hotel.brand}</p>
               </CardSc>
-            </a>
+            </Link>
           ))
         }
       </SectionHotelsSc>
