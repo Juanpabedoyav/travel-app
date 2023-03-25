@@ -1,14 +1,30 @@
 import { useParams } from "react-router-dom"
 import { HotelContext } from "../../context/Hotels/HotelContext"
-import { useContext } from "react"
+import { MutableRefObject, useContext } from "react"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
+import  { useRef } from "react"
+import emailjs from "@emailjs/browser"
 
 export const HotelDetails = () => {
+  const form = useRef<HTMLFormElement>(null)
   const { checkIn, checkOut}= useContext(UserSearchContext)
   const {id} =useParams()
   const {hotels} = useContext(HotelContext)
   const hotel = hotels.find(hotel => hotel.hotelId === id)
-  console.log(hotel, id)
+
+
+  const sendEmail = (e: any) => {
+    e.preventDefault()
+    if (form.current == null) return
+    emailjs.sendForm("service_md9kwx4", "template_rb84xii", form.current, "WNebh56wZOcLPnknR")
+      .then((result) => {
+        console.log(result.text)
+      }, (error) => {
+        console.log(error.text)
+      })
+  }
+
+
   return (
     <div style={{display:"flex", flexDirection: "column"}}>
       <section>
@@ -17,7 +33,7 @@ export const HotelDetails = () => {
         <p>{hotel?.brand}</p>
       </section>
       <section >
-        <form >
+        <form ref={form} onSubmit={sendEmail}>
           <p>{checkIn}</p>
           <p>{checkOut}</p>
           <div>
