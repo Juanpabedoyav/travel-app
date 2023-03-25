@@ -9,7 +9,7 @@ export const getIdLocation = (place?: string) =>{
       search_type: "HOTEL"
     },
     headers: {
-      "X-RapidAPI-Key": "5ec8346cb7msh68282be38a182bap1b201bjsnb5f02a71d620",
+      "X-RapidAPI-Key": "406193abdbmsh59142b9470cc9dfp17cbd4jsn3eb322f20af8",
       "X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com"
     }
   }
