@@ -10,13 +10,14 @@ export const FormSearch = () => {
   //get dispatch from context
   const {dispatch} = useContext(UserSearchContext)
   const dispatchHotels = useContext(HotelContext)
+  // id location
+  const [infoId, setInfoId] = useState("")  
   // set state for input
   const [input, setInput] = useState<UserSearchState>()
   const debounceRef = useRef<NodeJS.Timeout>()
   const {checkIn, checkOut, place} = useContext(UserSearchContext)
   
-  // id location
-  const [infoId, setInfoId] = useState("")
+
   const generateIdLocation =  () =>{ 
     if(place){
       getIdLocation(place).then( res =>{
@@ -56,7 +57,7 @@ export const FormSearch = () => {
     generateIdLocation()
     setTimeout(() => {
       getHotels()
-    }, 500)
+    }, 200)
   },[place])
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement> | any) => {
@@ -78,7 +79,7 @@ export const FormSearch = () => {
     <FormSC onSubmit={handleSubmit}>
       <div className="field">
         <label htmlFor="place">Location</label>
-        <InputSC  name={"place"}type="search" list="place" autoComplete="on"onChange={handleInput} />
+        <InputSC  name={"place"}type="search" list="place" autoComplete="on" onChange={handleInput} />
         <datalist id="place">
           <OptionsLocations/>
         </datalist>
