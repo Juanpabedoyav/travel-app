@@ -11,10 +11,13 @@ display: flex;
 flex-wrap: wrap;
 justify-content: center;
 gap: 1rem;
+a{
+    text-decoration: none;
+    color: #0000007e;
+}
 .card-hotels{
     width: 260px;
     height: 350px;
-    text-decoration: none;
     
 }
 `
@@ -25,10 +28,19 @@ export const CardSc = styled.article`
         justify-content: space-between;
         font-size: 1.1rem;
         color: #000;
+        h1{
+           display:block;
+            
+        }
         
     }
     .card-details{
-
+        font-size: 1rem;   
+        color: #0000000;
+        p:last-child{
+            color: #000;
+            font-weight:700;
+        }
     }
 img{
     width: 100%;
