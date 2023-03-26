@@ -3,6 +3,7 @@ import { HotelState } from "./HotelProvider"
 
 type HotelAction = 
 |{ type: "SET_HOTELS", payload: Hotel[] }
+|{ type: "SET_NEWHOTELS", payload: Hotel[] }
 
 
 export const  HotelReducer = ( state:HotelState, action: HotelAction): HotelState => {
@@ -12,7 +13,11 @@ export const  HotelReducer = ( state:HotelState, action: HotelAction): HotelStat
       ...state,
       hotels: action.payload
     }
-
+  case "SET_NEWHOTELS" :
+    return{
+      ...state,
+      newHotels: action.payload
+    }
   default:
     return state
   }

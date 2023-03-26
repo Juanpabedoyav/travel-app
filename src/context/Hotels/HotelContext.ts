@@ -3,6 +3,7 @@ import { Hotel } from "../../interfaces/hotels"
 
 export interface HotelContextProps {
     hotels : Hotel[],
+    newHotels: Hotel[],
     dispatch:any  
     // searchHotels: (checkIn: string, checkOut: string, cityId: string) => Promise<void>
 }

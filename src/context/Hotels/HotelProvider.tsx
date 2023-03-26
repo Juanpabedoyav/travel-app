@@ -9,9 +9,11 @@ interface HotelProviderProps {
 
 export interface HotelState {
   hotels: Hotel[],
+  newHotels: Hotel[],
 } 
 const INITIAL_STATE: HotelState = {
   hotels: [],
+  newHotels: [],
 }
 
 
