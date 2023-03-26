@@ -4,11 +4,14 @@ import { FieldsReservationSc, FormReservationSc, ReservationDatesSc, Reservation
 import { Modal } from "../Modal"
 import { Link } from "react-router-dom"
 import { HotelContext } from "../../context/Hotels/HotelContext"
+import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
+import { NewHotel } from "../../interfaces/hotels"
 
 export const DashboardAdmin = () => {
-  const {dispatch} = useContext(HotelContext)
+  const {dispatch, newHotels} = useContext(HotelContext)
+
   const [open, setOpen] = useState(false)
-  const [input, setInput] = useState({})
+  const [input, setInput] = useState([] as NewHotel[])
   const handlerChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
     setInput({
       ...input,
@@ -72,87 +75,29 @@ export const DashboardAdmin = () => {
         </FormReservationSc>
       </Modal>
       <SectionAdminSc>
-        <CardAdmindSc>
-          <picture>
-            <img src={"hotel.media?.url"} alt={"hotel.name"} loading="lazy" />
-          </picture>
-          <section className="card-title">
-            <h1>{"hotel.name"}</h1>
-            <p>⭐{"hotel.starRating"}</p>
-          </section>
-          <section className="card-details">
-            <p>{"hotel.brand"}</p>
-            <p>{"checkIn"} to {"checkOut"}</p>
-            <p>{"hotel.ratesSummary.minCurrencyCode"} {"hotel.ratesSummary.minPrice"} - Per night</p>
-          </section>
-          <button>Update</button>
-          <button>Deshabilitar</button>
+        {
+          newHotels?.map((hotel) =>(
 
-        </CardAdmindSc>
-        <CardAdmindSc>
-          <picture>
-            <img src={"hotel.media?.url"} alt={"hotel.name"} loading="lazy" />
-          </picture>
-          <section className="card-title">
-            <h1>{"hotel.name"}</h1>
-            <p>⭐{"hotel.starRating"}</p>
-          </section>
-          <section className="card-details">
-            <p>{"hotel.brand"}</p>
-            <p>{"checkIn"} to {"checkOut"}</p>
-            <p>{"hotel.ratesSummary.minCurrencyCode"} {"hotel.ratesSummary.minPrice"} - Per night</p>
-          </section>
-          <button>Update</button>
-          <button>Delete</button>
-        </CardAdmindSc>
-        <CardAdmindSc>
-          <picture>
-            <img src={"hotel.media?.url"} alt={"hotel.name"} loading="lazy" />
-          </picture>
-          <section className="card-title">
-            <h1>{"hotel.name"}</h1>
-            <p>⭐{"hotel.starRating"}</p>
-          </section>
-          <section className="card-details">
-            <p>{"hotel.brand"}</p>
-            <p>{"checkIn"} to {"checkOut"}</p>
-            <p>{"hotel.ratesSummary.minCurrencyCode"} {"hotel.ratesSummary.minPrice"} - Per night</p>
-          </section>
-          <button>Update</button>
-          <button>Delete</button>
-        </CardAdmindSc>
-        <CardAdmindSc>
-          <picture>
-            <img src={"hotel.media?.url"} alt={"hotel.name"} loading="lazy" />
-          </picture>
-          <section className="card-title">
-            <h1>{"hotel.name"}</h1>
-            <p>⭐{"hotel.starRating"}</p>
-          </section>
-          <section className="card-details">
-            <p>{"hotel.brand"}</p>
-            <p>{"checkIn"} to {"checkOut"}</p>
-            <p>{"hotel.ratesSummary.minCurrencyCode"} {"hotel.ratesSummary.minPrice"} - Per night</p>
-          </section>
-          <button>Update</button>
-          <button>Delete</button>
-        </CardAdmindSc>
-        <CardAdmindSc>
-          <picture>
-            <img src={"hotel.media?.url"} alt={"hotel.name"} loading="lazy" />
-          </picture>
-          <section className="card-title">
-            <h1>{"hotel.name"}</h1>
-            <p>⭐{"hotel.starRating"}</p>
-          </section>
-          <section className="card-details">
-            <p>{"hotel.brand"}</p>
-            <p>{"checkIn"} to {"checkOut"}</p>
-            <p>{"hotel.ratesSummary.minCurrencyCode"} {"hotel.ratesSummary.minPrice"} - Per night</p>
-          </section>
-          <button>Update</button>
-          <button>Delete</button>
-        </CardAdmindSc>
+            <CardAdmindSc key={hotel.id}>
+              <picture>
+                <img src={hotel.img} alt={hotel.name} loading="lazy" />
+              </picture>
+              <section className="card-title">
+                <h1>{hotel.name}</h1>
+              </section>
+              <section className="card-details">
+                <p>{hotel.price}</p>
+                <p>{hotel.room} to {hotel.roomType}</p>
+                <p>Cost Base: {hotel.cost}  Tax: {hotel.tax}</p>
+              </section>
+              <button>Update</button>
+              <button>Deshabilitar</button>
+            </CardAdmindSc>
+          ))
+
+        }
+      
+
       </SectionAdminSc>
 
     </DashboardAdminSC>
