@@ -74,7 +74,41 @@ export const FormReservationSc = styled.form`
    align-items: stretch;
    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
    border-radius: 1rem;
-.field {
+  button{ 
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 80%;
+    margin: 0.5rem auto;
+    height: 47px;
+    background: linear-gradient(
+          ${props => props.theme.colors.main[600]},
+          ${props => props.theme.colors.main[500]},
+          ${props => props.theme.colors.main[500]},
+          ${props => props.theme.colors.main[500]});
+    border: none;
+    border-radius: 0.4rem;
+  :hover{
+    color:  ${props => props.theme.colors.main[800]};
+    background:linear-gradient(
+        -50deg,
+        ${props => props.theme.colors.main[600]},
+        ${props => props.theme.colors.main[300]},
+        ${props => props.theme.colors.main[200]},
+        ${props => props.theme.colors.main[200]});
+    border: 2px solid ${props => props.theme.colors.main[500]};
+ }
+}
+hr{
+    margin: 1rem 0;
+  }
+.emergency--field{
+  display: flex;
+  flex-direction: row;
+}
+`
+export const FieldsReservationSc = styled.div`
   height: 2rem;
   margin-bottom: 10px;
   display: flex;
@@ -82,12 +116,6 @@ export const FormReservationSc = styled.form`
   justify-content: space-between;
   min-width: 250px;
   gap: 0.4rem;
-}
-.emergency--field{
-  display: flex;
-  flex-direction: row;
-}
-
 label{
   width: 78px;
   margin: 0.3rem;
@@ -107,41 +135,10 @@ input, select{
           outline: none;
           border: 2px solid
             ${props => props.theme.colors.main[400]};
-          
         }
 }
-button{ 
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: 600;
-  width: 80%;
-  margin: 0.5rem auto;
-  height: 47px;
-  background: linear-gradient(
-        ${props => props.theme.colors.main[600]},
-        ${props => props.theme.colors.main[500]},
-        ${props => props.theme.colors.main[500]},
-        ${props => props.theme.colors.main[500]});
-  border: none;
-  border-radius: 0.4rem;
-  :hover{
-    color:  ${props => props.theme.colors.main[800]};
-    background:linear-gradient(
-        -50deg,
-        ${props => props.theme.colors.main[600]},
-        ${props => props.theme.colors.main[300]},
-        ${props => props.theme.colors.main[200]},
-        ${props => props.theme.colors.main[200]});
-    border: 2px solid ${props => props.theme.colors.main[500]};
- }
-
-}
-
-hr{
-    margin: 1rem 0;
-  }
 `
+
 export const ReservationDatesSc = styled.div`
   justify-content: center;
   display: flex;
@@ -156,6 +153,7 @@ export const ReservationDatesSc = styled.div`
     display: block;
     margin: 0 auto;
     font-weight: 800;
+    text-align: center;
   }
  .reservations-dates--checkIn{
   display: inline-block;
@@ -168,6 +166,36 @@ export const ReservationDatesSc = styled.div`
     border-radius: 0 1rem 0 0 ; 
     padding: 3px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+`
+
+export const ReservationRoomSc = styled.div`
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+ #room{
+  display: inline-block;
+  height: 40px;
+  padding: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 60%;
+  font-weight: 800;
+    background:linear-gradient(
+          ${props => props.theme.colors.secondary[200]},
+          ${props => props.theme.colors.secondary[300]},
+          ${props => props.theme.colors.secondary[400]},
+          ${props => props.theme.colors.secondary[500]});
+        :focus{
+          outline: none;
+          border: 2px solid
+            ${props => props.theme.colors.main[400]};
+        }
+    option{
+      padding: 0.4rem;
+      margin: 0.4rem;
+      font-size: 1.2rem;
+    }
   }
 `
 

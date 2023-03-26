@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 import  { useRef } from "react"
 import emailjs from "@emailjs/browser"
-import { FormReservationSc, InfoReservationSc, ReservationDatesSc, SectionHotelDetailsSc, SectionReservationSc } from "./styles"
+import { FieldsReservationSc, FormReservationSc, InfoReservationSc, ReservationDatesSc, ReservationRoomSc, SectionHotelDetailsSc, SectionReservationSc } from "./styles"
 
 export const HotelDetails = () => {
   const form = useRef<HTMLFormElement>(null)
@@ -84,23 +84,24 @@ export const HotelDetails = () => {
             </div>
           </ReservationDatesSc>
           {/* Reservation Rooms */}
-          <label htmlFor="checkIn">1 Roomm
-            <input type="text" name="checkIn" id="checkIn"  defaultValue={checkIn}/>
-          </label>
-          <label htmlFor="checkOut">2 Roomms 
-            <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut}/>
-          </label>
-          <label htmlFor="checkOut">3+ Rooms 
-            <input type="text" name="checkOut" id="checkOut"  defaultValue={checkOut}/>
-          </label>
+          <ReservationRoomSc>
+            <select name="room" id="room">
+              <option value={1}>1 Room</option>
+              <option value={2}>2 Rooms</option>
+              <option value={3}>3+ Rooms</option>
+            </select>
+          </ReservationRoomSc>
+
           <hr></hr>
-          <div className="field">
+          {/* field name - lastname*/}
+          <FieldsReservationSc>
             <label htmlFor="name">Name:</label>
             <input type="text" name="to_name" id="to_name"  required/>
             <label htmlFor="lastName">Last Name:</label>
             <input type="text" name="lastName" id="lastName"  required/>
-          </div>
-          <div className="field">
+          </FieldsReservationSc>
+          {/* field  birthdate - gender*/}
+          <FieldsReservationSc>
             <label htmlFor="birthdate">Birthdate:</label>
             <input type="date" name="birthdate" id="birthdate"  required/>
             <label htmlFor="gender">Gender:</label>
@@ -108,28 +109,30 @@ export const HotelDetails = () => {
               <option value="Female">Female</option>
               <option value="Male">Male</option>
             </select>
-            
-          </div>
-          <div className="field">
+          </FieldsReservationSc>
+          {/* field  documentType - documentNumber*/}
+          <FieldsReservationSc>
             <label htmlFor="documentType">Document Type:</label>
             <input type="text" name="documentType" id="documentType" required />
             <label htmlFor="documentNumber">Document ID:</label>
             <input type="number" name="documentNumber" id="documentNumber" required />
-          </div>
-          <div className="field">
+          </FieldsReservationSc>
+          {/* field  email - telephone*/}
+          <FieldsReservationSc>
             <label htmlFor="email">Email:</label>
             <input type="email" name="email" id="email"  required/>
             <label htmlFor="telephone">Telephone:</label>
-            <input type="tel" name="telephone" id="telephone"  required/>
-          </div>
+            <input type="tel" name="telephone" id="telephone"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required/>
+          </FieldsReservationSc>
           <hr></hr>
           <h1>Emergency Contact</h1>
-          <div className="field emergency--field">
+          {/* field  emergency - telephoneEmegergency*/}
+          <FieldsReservationSc>
             <label htmlFor="emergency">Emergency Contact</label>
             <input type="tel" name="emergency" id="emergency"  required/>
             <label htmlFor="telephoneEmegergency">Telephone:</label>
-            <input type="tel" name="telephoneEmegergency" id="telephoneEmegergency"  required/>
-          </div>
+            <input type="tel" name="telephoneEmegergency" id="telephoneEmegergency"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required/>
+          </FieldsReservationSc>
           <button type="submit">reservar</button>
 
         </FormReservationSc>
