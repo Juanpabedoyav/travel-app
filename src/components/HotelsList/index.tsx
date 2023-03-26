@@ -23,7 +23,7 @@ export const HotelsList = () => {
                 <Link className="card-hotels" to={`/detail/${hotel.hotelId}`} key={hotel.hotelId}>
                   <CardSc >
                     <picture>
-                      <img src={hotel.media.url} alt={hotel.name} loading="lazy" />
+                      <img src={hotel.media?.url} alt={hotel.name} loading="lazy" />
                     </picture>
                     <section className="card-title">
                       <h1>{hotel.name}</h1>
