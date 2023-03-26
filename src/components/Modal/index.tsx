@@ -1,7 +1,7 @@
 import  ReactDOM  from "react-dom"
-import { CreateModalHotelSC } from "./styles"
+import { ModalSC } from "./styles"
 
-interface CreateHotelPros {
+interface ModalPros {
     children: JSX.Element | JSX.Element[],
     open: boolean,
     close: () => void
@@ -9,16 +9,16 @@ interface CreateHotelPros {
 
 
 
-export const  CreateHotel = ({children, open, close}: CreateHotelPros)  =>{
+export const  Modal = ({children, open, close}: ModalPros)  =>{
   const portal = document.getElementById("portal-form") as HTMLElement
   if(!open) return null
 
   return ReactDOM.createPortal(
     <>
-      <CreateModalHotelSC>
+      <ModalSC>
         <button onClick={close}>Close Modal</button>
         {children}
-      </CreateModalHotelSC>
+      </ModalSC>
     </>,
     portal 
   )
