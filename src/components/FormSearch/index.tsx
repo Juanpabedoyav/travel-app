@@ -39,14 +39,16 @@ export const FormSearch = () => {
         page_number: "1",
       },
       headers: {
-        "X-RapidAPI-Key": "406193abdbmsh59142b9470cc9dfp17cbd4jsn3eb322f20af8",
+        "X-RapidAPI-Key": "4051a72e8fmsh1de75d6aaaafc71p10aa9ejsn3e8d497e9a1d",
         "X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com"
       }
     }
     try {
-      axios.request(options).then((response) => 
-        dispatchHotels.dispatch({ type:"SET_HOTELS", payload: response.data.hotels})
-      )
+      if(infoId && checkIn && checkOut){
+        axios.request(options).then((response) => 
+          dispatchHotels.dispatch({ type:"SET_HOTELS", payload: response.data.hotels})
+        )
+      }
     } catch{
       throw new Error("Error")
     }

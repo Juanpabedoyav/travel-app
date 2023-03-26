@@ -36,7 +36,6 @@ export const HotelDetails = () => {
           <p>{hotel?.totalReviewCount} Reviews</p>
         </div>
       </section>
-
       <section className="hotel-details-images">
         <img className= {"details-image"} src={hotel?.media.url} alt={hotel?.name} loading="lazy"/>
         <div className="hotel-details--othersimages">
@@ -46,10 +45,8 @@ export const HotelDetails = () => {
           <img src={hotel?.media.url} alt={hotel?.name} loading="lazy"/>
         </div>
       </section>
-
-
-
       <SectionReservationSc >
+        {/* Perks reservation */}
         <InfoReservationSc >
           <h2>Reservation</h2>
           <h1>{hotel?.name}</h1>
