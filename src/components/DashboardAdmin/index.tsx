@@ -19,7 +19,7 @@ export const DashboardAdmin = () => {
 
   const handlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    dispatch({type: "SET_NEWHOTELS", payload: []})
+    dispatch({type: "SET_NEWHOTELS", payload: input})
 
   }
 
@@ -41,11 +41,11 @@ export const DashboardAdmin = () => {
               <option value={2}>2 Rooms</option>
               <option value={3}>3+ Rooms</option>
             </select>
-            <label htmlFor="room-type">Room Type:</label>
-            <select name="room-type" id="room-type" onChange={handlerChange}>
-              <option value={1}>Normal</option>
-              <option value={2}>VIP</option>
-              <option value={3}>VIP</option>
+            <label htmlFor="roomType">Room Type:</label>
+            <select name="roomType" id="roomType" onChange={handlerChange}>
+              <option value={"Normal"}>Normal</option>
+              <option value={"VIP"}>VIP</option>
+              <option value={"VIP"}>VIP</option>
             </select>
             <label htmlFor="price">Price:</label>
             <input type="number" name="price" id="price"  required onChange={handlerChange}/>

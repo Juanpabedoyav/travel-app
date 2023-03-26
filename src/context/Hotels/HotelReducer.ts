@@ -1,9 +1,9 @@
-import { Hotel } from "../../interfaces/hotels"
+import { Hotel, NewHotel } from "../../interfaces/hotels"
 import { HotelState } from "./HotelProvider"
 
 type HotelAction = 
 |{ type: "SET_HOTELS", payload: Hotel[] }
-|{ type: "SET_NEWHOTELS", payload: Hotel[] }
+|{ type: "SET_NEWHOTELS", payload: NewHotel[] }
 
 
 export const  HotelReducer = ( state:HotelState, action: HotelAction): HotelState => {

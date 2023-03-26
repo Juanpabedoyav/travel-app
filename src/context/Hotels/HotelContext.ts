@@ -1,9 +1,9 @@
 import { createContext } from "react"
-import { Hotel } from "../../interfaces/hotels"
+import { Hotel, NewHotel } from "../../interfaces/hotels"
 
 export interface HotelContextProps {
     hotels : Hotel[],
-    newHotels: Hotel[],
+    newHotels: NewHotel[],
     dispatch:any  
     // searchHotels: (checkIn: string, checkOut: string, cityId: string) => Promise<void>
 }
