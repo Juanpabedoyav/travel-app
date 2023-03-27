@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react"
 import {  CardAdmindSc, DashboardAdminSC, FieldsCreateHotelActionsSc, FieldsCreateHotelSc, FormCreateHotelSc, SectionAdminSc } from "./styles"
-import { ReservationRoomSc } from "../HotelDetails/styles"
 import { Modal } from "../Modal"
 import { Link, useParams } from "react-router-dom"
 import { HotelContext } from "../../context/Hotels/HotelContext"
