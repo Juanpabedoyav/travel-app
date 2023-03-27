@@ -77,28 +77,26 @@ export const FormReservationSc = styled.form`
   button{ 
     text-transform: uppercase;
     color: #fff;
-    font-size: 1.2rem;
-    font-weight: 600;
     width: 80%;
-    margin: 0.5rem auto;
+    margin: 1rem auto;
     height: 47px;
-    background: linear-gradient(
-          ${props => props.theme.colors.main[600]},
-          ${props => props.theme.colors.main[500]},
-          ${props => props.theme.colors.main[500]},
-          ${props => props.theme.colors.main[500]});
-    border: none;
-    border-radius: 0.4rem;
-  :hover{
-    color:  ${props => props.theme.colors.main[800]};
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+    background-color: #fff;
+    color: #fff;
+    border: 1px solid  ${props => props.theme.colors.main[600]};
     background:linear-gradient(
-        -50deg,
         ${props => props.theme.colors.main[600]},
-        ${props => props.theme.colors.main[300]},
-        ${props => props.theme.colors.main[200]},
-        ${props => props.theme.colors.main[200]});
-    border: 2px solid ${props => props.theme.colors.main[500]};
- }
+        ${props => props.theme.colors.main[500]},
+        ${props => props.theme.colors.main[500]},
+        ${props => props.theme.colors.main[500]});;
+        :hover{
+        color:  ${props => props.theme.colors.main[600]};
+        background: #fff;
+        border: 2px solid  ${props => props.theme.colors.main[600]};
+        }
 }
 hr{
     margin: 1rem 0;
