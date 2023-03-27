@@ -3,190 +3,79 @@
 
 The Travel App is a Web site designed in React JS to help users plan their trips and make the most of their travels. With a simple and intuitive interface, the app allows users to search hotels
 
+# For Admins
+- Go to the route https://travel-app-pink-gamma.vercel.app/777
+
 ## Requirements
 
 Getting Started
 To run the Travel App locally, follow these steps:
 
 Clone the repository to your local machine:
-bash
-Copy code
+  
+```bash
 git clone https://github.com/your-username/travel-app.git
-
-####Install the dependencies:
-Copy code
-npm install
-Start the development server:
-sql
-Copy code
-npm start
+```
+##Install the dependencies:
+```
+npm run install
+```
+And then
+```
+npm run start
+```
 Open http://localhost:3000 in your browser to view the app.
 
 The Travel App was created with React.js 18 and Styled Components. If you encounter any issues, please refer to the React.js documentation and the Styled Components documentation.
 
 To build the app for production, run:
 
-arduino
-Copy code
-npm run build
-This will create an optimized production build in the build directory.
-
 We recommend that you use a modern web browser to ensure the best user experience.
-
-## Programming paradigm
-
-This code uses Object-Oriented Programming (OOP) paradigm in Python. The main class Receipt contains attributes and methods to extract the relevant data from the OCR output.
-
-## Assumptions
-
-This code assumes that the input JSON file has OCR output in the "fullTextAnnotation" key of the "pages" array of the JSON object. If there is no OCR output in that location, the code will fail.
-
-This code also assumes that the receipt has a certain structure, such as the presence of a date, address, invoice number, and item prices in the text. If these elements are not present or are in a different format, the code may not extract the correct information.
-
-## Coding Style
-
-This script was developed following the PEP8 style guide for Python code.
 
 ## Usage
 
-The script can be run from the command line with the following command:
+The Travel App allows users to search for hotels by entering their desired check-in date, check-out date, and country. Here's how to use the search feature:
 
-```bash
-  python receipt.py
-```
-Output file first ticket:
+On the homepage, you'll see a search bar with input fields for the check-in date, check-out date, and country.
+![image](https://user-images.githubusercontent.com/68037012/227958358-a4687767-f71f-4183-9bce-877acbd4f40e.png)
 
-```bash
-  {
-    "date": "10/12/2021",
-    "storeAddress": "AVENIDA CALLE 80 No 69Q- 50",
-    "invoiceNumber": "J122 249302",
-    "subtotal": 86160,
-    "total": 86160,
-    "lineItems": [
-        {
-            "sku": 8410270241140,
-            "description": "Aceite oliva SU",
-            "total": 27990,
-            "taxCode": "N"
-        },
-        {
-            "sku": 7707322030489,
-            "description": "Quinua QUINOACL",
-            "total": 7990,
-            "taxCode": "A"
-        },
-        {
-            "sku": 7707322030489,
-            "description": "Quinua QUINOACL",
-            "total": 7990,
-            "taxCode": "A"
-        },
-        {
-            "sku": 8004690751060,
-            "description": "Cous cous LA MO",
-            "total": 8990,
-            "taxCode": ""
-        },
-        {
-            "sku": 7702247011056,
-            "description": "YOGURT LIQUIDO",
-            "total": 2650,
-            "taxCode": "N"
-        },
-        {
-            "sku": 8410971033785,
-            "description": "Aceitunas EXCEL",
-            "total": 3490,
-            "taxCode": ""
-        },
-        {
-            "sku": 7707298470074,
-            "description": "Tallarines BEST",
-            "total": 8790,
-            "taxCode": "A"
-        },
-        {
-            "sku": 7702085003497,
-            "description": "Quinua molida D",
-            "total": 8690,
-            "taxCode": "A"
-        },
-        {
-            "sku": 7705326077837,
-            "description": "Tortillinas BIM",
-            "total": 5990,
-            "taxCode": "N"
-        },
-        {
-            "sku": 7702253800002,
-            "description": "Maiz pira TOT-R",
-            "total": 3590,
-            "taxCode": ""
-        }
-    ]
-}
-```
-## Testing
+- Select the country you want to search for hotels in from the dropdown menu.
 
-This script has been tested using pytest, with the tests located in the test_receipt_ticket1.py and test_receipt_ticket2.py files. To run the tests, simply run the following command:
+- Enter the check-in date and check-out date in the corresponding input fields. You can either type in the dates or use the date picker that appears when you click on  the input field.
 
-```bash
-  pytest -v
-```
-Note that currently, the script is failing to obtain the tax codes for one of the example invoices.
+Click the "Search" button to submit your search.
+![image](https://user-images.githubusercontent.com/68037012/227960152-0fa52cb8-6ebd-407e-be06-ef811afb4c36.png)
 
-```bash
-  ================================================== test session starts ===================================================
-platform win32 -- Python 3.9.6, pytest-7.2.2, pluggy-1.0.0 -- d:\python 3.9.6\python.exe
-cachedir: .pytest_cache
-rootdir: ******
-collected 12 items
+You'll be taken to a results page that displays a list of hotels that match your search criteria. Each hotel card displays the hotel's name, location, price, and a photo.
+![image](https://user-images.githubusercontent.com/68037012/227960729-dd4264ec-bb12-4041-a2f8-f31a5bfd8eb8.png)
 
-test_receipt_ticket1.py::test_json_date PASSED                                                                      [  8%]
-test_receipt_ticket1.py::test_json_store_address PASSED                                                             [ 16%] 
-test_receipt_ticket1.py::test_json_invoice_number PASSED                                                            [ 25%] 
-test_receipt_ticket1.py::test_json_subtotal PASSED                                                                  [ 33%] 
-test_receipt_ticket1.py::test_json_total PASSED                                                                     [ 41%] 
-test_receipt_ticket1.py::test_json_line_items FAILED                                                                [ 50%]
-test_receipt_ticket2.py::test_json_date PASSED                                                                      [ 58%] 
-test_receipt_ticket2.py::test_json_store_address PASSED                                                             [ 66%] 
-test_receipt_ticket2.py::test_json_invoice_number PASSED                                                            [ 75%] 
-test_receipt_ticket2.py::test_json_subtotal PASSED                                                                  [ 83%] 
-test_receipt_ticket2.py::test_json_total PASSED                                                                     [ 91%]
-test_receipt_ticket2.py::test_json_line_items PASSED                                                                [100%] 
+To view more details about a hotel, click on the "Hotel" button on the hotel card. This will take you to a detailed view of the hotel, where you can see more photos, read reviews, and book your stay.
+![image](https://user-images.githubusercontent.com/68037012/227962419-ecb0db2f-fcf6-404d-826b-c1d196df018f.png)
 
-======================================================== FAILURES ======================================================== 
-__________________________________________________ test_json_line_items __________________________________________________ 
 
-    def test_json_line_items():
-        """
-        Check if each line item in the JSON file generated by create_json_file()
-        is equal to the corresponding line item in the sample JSON file.
-        """
-        with open("./data/valid_ticket1.json", "r") as f:
-            true_data = json.load(f)
-        with open("./sample_J122_249302.json", "r") as f:
-            my_data = json.load(f)
-        for i in range(len(my_data)):
-            assert my_data['lineItems'][i]['sku'] \
-                == true_data['lineItems'][i]['sku']
-            assert my_data['lineItems'][i]['description'] \
-                == true_data['lineItems'][i]['description']
-            assert my_data['lineItems'][i]['total'] \
-                == true_data['lineItems'][i]['total']
->           assert my_data['lineItems'][i]['taxCode'] \
-                == true_data['lineItems'][i]['taxCode']
-E           AssertionError: assert '' == 'A'
-E             - A
+That's it! With the Travel App's search feature, you can easily find and book hotels for your next trip.
 
-test_receipt_ticket1.py:85: AssertionError
-================================================ short test summary info ================================================= 
-FAILED test_receipt_ticket1.py::test_json_line_items - AssertionError: assert '' == 'A'
-```
+- The you could to do the reservation
+![image](https://user-images.githubusercontent.com/68037012/227963061-2e33a7da-54ee-43cf-925a-8512932c310b.png)
+
+When you click on "Reservar" you will receive an email in your inbox 
+
+# AdminDashboard
+Open the route (https://travel-app-pink-gamma.vercel.app/777/) in your browser to view the app.
+
+![image](https://user-images.githubusercontent.com/68037012/227964752-15531c7b-8c8f-4820-9c33-69e88930c1bb.png)
+
+- In the route (https://travel-app-pink-gamma.vercel.app/777/)  you have the main cards about the new hotels
+
+![image](https://user-images.githubusercontent.com/68037012/227964862-6b9a1a6d-72e5-4192-b049-12555d10a329.png)
+
+- In the route (https://travel-app-pink-gamma.vercel.app/777/reservations)  you have the main cards about the reservations
+
+![image](https://user-images.githubusercontent.com/68037012/227965992-61caa212-cd22-4503-beeb-b26c036be43b.png)
+
 
 
 ## Author
 
-- [@samuelgit95](https://github.com/samuelgit95)
+- [@juanpabedoyav](https://github.com/juanpabedoyav)
 
