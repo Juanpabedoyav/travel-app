@@ -5,9 +5,10 @@ import { CardSc, SectionHotelsSc, TitleHotelsListSc } from "./styles"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 
 export const HotelsList = () => {
+  //  destructuring context
   const {hotels} = useContext(HotelContext)
   const {place, checkIn, checkOut} = useContext(UserSearchContext)
-
+  // custom render
   if(hotels?.length === 0) return <h1></h1>
   if(hotels  === null) return <h1>Dont have Hotels...</h1>
    

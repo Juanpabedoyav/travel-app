@@ -1,7 +1,7 @@
 import { useReducer } from "react"
 import { HotelContext } from "./HotelContext"
 import { HotelReducer } from "./HotelReducer"
-import { Hotel } from "../../interfaces/hotels"
+import { Hotel, NewHotel } from "../../interfaces/hotels"
 
 interface HotelProviderProps {
     children: JSX.Element | JSX.Element[],
@@ -9,9 +9,12 @@ interface HotelProviderProps {
 
 export interface HotelState {
   hotels: Hotel[],
+  newHotels: NewHotel[],
 } 
+// initial state
 const INITIAL_STATE: HotelState = {
   hotels: [],
+  newHotels: [],
 }
 
 

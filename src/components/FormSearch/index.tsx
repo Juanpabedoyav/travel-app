@@ -14,10 +14,12 @@ export const FormSearch = () => {
   const [infoId, setInfoId] = useState("")  
   // set state for input
   const [input, setInput] = useState<UserSearchState>()
+  // handler change input with debounce
   const debounceRef = useRef<NodeJS.Timeout>()
+  // destructure context
   const {checkIn, checkOut, place} = useContext(UserSearchContext)
   
-
+  // generate id location
   const generateIdLocation =  () =>{ 
     if(place){
       getIdLocation(place).then( res =>{
@@ -26,7 +28,7 @@ export const FormSearch = () => {
       console.log(infoId)
     }
   }
- 
+  // get hotels from api
   const getHotels = async () => {
     const options = {
       method: "GET",
@@ -54,14 +56,14 @@ export const FormSearch = () => {
     }
    
   }
-
+  // get hotels when change inputs
   useEffect(() => {
     generateIdLocation()
     setTimeout(() => {
       getHotels()
     },)
   },[place, checkIn, checkOut])
-
+  // handler change input with debounce
   const handleInput = (e: React.ChangeEvent<HTMLInputElement> | any) => {
     if(debounceRef.current) clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(() => {
@@ -71,7 +73,7 @@ export const FormSearch = () => {
       })
     },500)
   }
-
+  // handler submit form
   const handleSubmit = (e: React.FormEvent<HTMLFormElement> ) => {
     e.preventDefault()
     //dispatch action to save data in context

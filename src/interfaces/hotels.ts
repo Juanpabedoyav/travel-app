@@ -35,6 +35,16 @@ export interface PolygonPoint {
     latitude:  number;
     longitude: number;
 }
+export interface NewHotel {
+    room:        string;
+    roomType: string;
+    price:       string;
+    id:          string;
+    name:        string;
+    cost:        string;
+    tax:         string;
+    img:         string;
+}
 
 export interface Hotel {
     hotelId:                  string;

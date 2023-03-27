@@ -11,7 +11,7 @@ export const AppRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/777" element={<DashboardAdmin />} />
-
+        <Route path="/777/:id" element={<DashboardAdmin />} />
       </Routes>
     </BrowserRouter>
   )
