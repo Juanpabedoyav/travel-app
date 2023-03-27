@@ -60,12 +60,12 @@ export const HotelDetails = () => {
         </div>
       </section>
       <section className="hotel-details-images">
-        <img className= {"details-image"} src={localStorageHotel?.media.url} alt={localStorageHotel?.name} loading="lazy"/>
+        <img className= {"details-image"} src={localStorageHotel?.media?.url} alt={localStorageHotel?.name} loading="lazy"/>
         <div className="hotel-details--othersimages">
-          <img src={localStorageHotel?.media.url} alt={hotel?.name} loading="lazy"/>
-          <img src={localStorageHotel?.media.url} alt={localStorageHotel?.name} loading="lazy"/>
-          <img src={localStorageHotel?.media.url} alt={localStorageHotel?.name} loading="lazy"/>
-          <img src={localStorageHotel?.media.url} alt={localStorageHotel?.name} loading="lazy"/>
+          <img src={localStorageHotel?.media?.url} alt={hotel?.name} loading="lazy"/>
+          <img src={localStorageHotel?.media?.url} alt={localStorageHotel?.name} loading="lazy"/>
+          <img src={localStorageHotel?.media?.url} alt={localStorageHotel?.name} loading="lazy"/>
+          <img src={localStorageHotel?.media?.url} alt={localStorageHotel?.name} loading="lazy"/>
         </div>
       </section>
       <SectionReservationSc >
