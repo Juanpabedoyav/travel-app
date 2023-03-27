@@ -15,8 +15,8 @@ export const  HotelReducer = ( state:HotelState, action: HotelAction): HotelStat
     }
   case "SET_NEWHOTELS" :
     return{
-      ...state,
-      newHotels:  action.payload,
+      ...state ,
+      newHotels: [...action.payload], 
     }
   default:
     return state

@@ -2,22 +2,23 @@ import { useContext, useState } from "react"
 import { CardAdmindSc, DashboardAdminSC, SectionAdminSc } from "./styles"
 import { FieldsReservationSc, FormReservationSc, ReservationDatesSc, ReservationRoomSc } from "../HotelDetails/styles"
 import { Modal } from "../Modal"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { HotelContext } from "../../context/Hotels/HotelContext"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 import { NewHotel } from "../../interfaces/hotels"
+import { Reservation } from "../Reservation"
 
 export const DashboardAdmin = () => {
   const {dispatch, newHotels} = useContext(HotelContext)
 
   const [open, setOpen] = useState(false)
+  const {id} = useParams()
   const [input, setInput] = useState([] as NewHotel[])
   const handlerChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
     setInput({
       ...input,
       [e.target.name] : e.target.value
     })
-    console.log(input)
   }
 
   const handlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,7 +32,7 @@ export const DashboardAdmin = () => {
       <div className="actions">    
         <h1>DashBoard Admin</h1>
         <button onClick={()=> setOpen(true)}>New Hotel</button>
-        <Link to='resevations'>Reservations</Link>
+        <Link to='reservations'>Reservations</Link>
       </div>
        
       <Modal open={open} close={() => setOpen(false)}>
@@ -74,32 +75,34 @@ export const DashboardAdmin = () => {
           <button onClick={()=>setOpen(false)}>Close</button>
         </FormReservationSc>
       </Modal>
-      <SectionAdminSc>
-        {
-          newHotels?.map((hotel) =>(
-
-            <CardAdmindSc key={hotel.id}>
-              <picture>
-                <img src={hotel.img} alt={hotel.name} loading="lazy" />
-              </picture>
-              <section className="card-title">
-                <h1>{hotel.name}</h1>
-              </section>
-              <section className="card-details">
-                <p>{hotel.price}</p>
-                <p>{hotel.room} to {hotel.roomType}</p>
-                <p>Cost Base: {hotel.cost}  Tax: {hotel.tax}</p>
-              </section>
-              <button>Update</button>
-              <button>Deshabilitar</button>
-            </CardAdmindSc>
-          ))
-
-        }
       
+      { id === "reservations" ?
+        <Reservation/>      
+        :
+        <SectionAdminSc>
+          {
+            // newHotels?.map((hotel) =>(
 
-      </SectionAdminSc>
+            //   <CardAdmindSc key={hotel.id}>
+            //     <picture>
+            //       <img src={hotel.img} alt={hotel.name} loading="lazy" />
+            //     </picture>
+            //     <section className="card-title">
+            //       <h1>{hotel.name}</h1>
+            //     </section>
+            //     <section className="card-details">
+            //       <p>{hotel.price}</p>
+            //       <p>{hotel.room} to {hotel.roomType}</p>
+            //       <p>Cost Base: {hotel.cost}  Tax: {hotel.tax}</p>
+            //     </section>
+            //     <button>Update</button>
+            //     <button>Deshabilitar</button>
+            //   </CardAdmindSc>
+            // ))
 
+          }
+        </SectionAdminSc>
+      }
     </DashboardAdminSC>
   )
 }
