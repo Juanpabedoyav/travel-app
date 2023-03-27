@@ -18,7 +18,7 @@ export const Reservation = () => {
 
   useEffect(() => {
     getLocalStorage()
-  }, [])
+  }, [localStorage.getItem("reservation")])
 
 
 
