@@ -11,13 +11,13 @@ import { useEffect, useState } from "react"
 export const OptionsLocations = () => {
 
   const [location, setLocation] = useState([] as OptionsLocationsState[])
-  //get data from API
+  //get all countries from API
   const getLocations = async () => {
     const res = await axios.get("https://trial.mobiscroll.com/content/countries.json")
     const data = await res.data
     setLocation(data)
   }
-    
+  // get all countries when component is mounted 
   useEffect(() => {
     getLocations()    
   }, [])
