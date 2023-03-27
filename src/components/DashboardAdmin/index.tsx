@@ -1,5 +1,5 @@
-import { useContext, useState } from "react"
-import {  DashboardAdminSC, FieldsCreateHotelActionsSc, FieldsCreateHotelSc, FormCreateHotelSc, SectionAdminSc } from "./styles"
+import { useContext, useEffect, useState } from "react"
+import {  CardAdmindSc, DashboardAdminSC, FieldsCreateHotelActionsSc, FieldsCreateHotelSc, FormCreateHotelSc, SectionAdminSc } from "./styles"
 import { ReservationRoomSc } from "../HotelDetails/styles"
 import { Modal } from "../Modal"
 import { Link, useParams } from "react-router-dom"
@@ -9,13 +9,15 @@ import { Reservation } from "../Reservation"
 
 export const DashboardAdmin = () => {
   // destructure context
-  const {dispatch, newHotels} = useContext(HotelContext)
+  const {dispatch} = useContext(HotelContext)
   // state modal  
   const [open, setOpen] = useState(false)
   // get id from url
   const {id} = useParams()
   // state input
   const [input, setInput] = useState([] as NewHotel[])
+  // state new hotel
+  const [newHotelDash, setNewHotelDash] = useState([] as NewHotel[])
   // handler change input
   const handlerChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
     setInput({
@@ -26,16 +28,33 @@ export const DashboardAdmin = () => {
   // handler submit
   const handlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    dispatch({type: "SET_NEWHOTELS", payload: input})
+    dispatch({type: "SET_NEWHOTELS", payload: [input]})
+    localStorage.setItem("newHotel", JSON.stringify([input]))
+  }
+
+  const getLocalStorage = () => {
+    const data = localStorage.getItem("newHotel")
+    if(data) {
+      const dataParse = JSON.parse(data)
+      setNewHotelDash(dataParse)
+      // dispatch({type: "SET_NEWHOTELS", payload: dataParse})
+    }
+
 
   }
+  useEffect(() => {
+    getLocalStorage()
+  }, [])
+  
 
   return (
     <DashboardAdminSC>
       <div className="actions">    
         <h1>DashBoard Admin</h1>
         <button onClick={()=> setOpen(true)}>New Hotel</button>
+        {/* <Link to={`${window.location.host}/777`}>Hotel List</Link> */}
         <Link to='reservations'>Reservations</Link>
+      
       </div>
       {/* modal */}
       <Modal open={open}>
@@ -88,24 +107,23 @@ export const DashboardAdmin = () => {
         :
         <SectionAdminSc>
           {
-            // newHotels?.map((hotel) =>(
-
-            //   <CardAdmindSc key={hotel.id}>
-            //     <picture>
-            //       <img src={hotel.img} alt={hotel.name} loading="lazy" />
-            //     </picture>
-            //     <section className="card-title">
-            //       <h1>{hotel.name}</h1>
-            //     </section>
-            //     <section className="card-details">
-            //       <p>{hotel.price}</p>
-            //       <p>{hotel.room} to {hotel.roomType}</p>
-            //       <p>Cost Base: {hotel.cost}  Tax: {hotel.tax}</p>
-            //     </section>
-            //     <button>Update</button>
-            //     <button>Deshabilitar</button>
-            //   </CardAdmindSc>
-            // ))
+            newHotelDash?.map((hotel) =>(
+              <CardAdmindSc key={hotel.id}>
+                <picture>
+                  <img src={hotel.img} alt={hotel.name} loading="lazy" />
+                </picture>
+                <section className="card-title">
+                  <h1>{hotel.name}</h1>
+                </section>
+                <section className="card-details">
+                  <p>{hotel.price}</p>
+                  <p>{hotel.room} to {hotel.roomType}</p>
+                  <p>Cost Base: {hotel.cost}  Tax: {hotel.tax}</p>
+                </section>
+                <button>Update</button>
+                <button>Deshabilitar</button>
+              </CardAdmindSc>
+            ))
 
           }
         </SectionAdminSc>
