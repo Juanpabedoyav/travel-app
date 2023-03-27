@@ -17,7 +17,7 @@ a{
 }
 .card-hotels{
     width: 260px;
-    height: 350px;
+    /* height: 350px; */
     
 }
 `
