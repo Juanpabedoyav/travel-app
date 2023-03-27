@@ -73,6 +73,18 @@ Open the route (https://travel-app-pink-gamma.vercel.app/777/) in your browser t
 
 ![image](https://user-images.githubusercontent.com/68037012/227965992-61caa212-cd22-4503-beeb-b26c036be43b.png)
 
+## Features
+- API https://rapidapi.com/tipsters/api/priceline-com-provider
+
+# Country Selection
+The Travel App allows users to search for hotels by selecting a country from a dropdown menu. When the user selects a country, the app generates a unique ID for that location using the Priceline.com Provider API's ```/v1/hotels/locations``` endpoint. This ID is then used to generate the list of hotels available in that location.
+
+# Hotel Search
+Once the user selects a country, the Travel App uses the generated ID to search for hotels using the Priceline.com Provider API's 
+```/v1/hotels/search``` 
+endpoint. The app sends a GET request to the API with the generated ID, along with any additional search parameters (such as check-in date and check-out date) entered by the user.
+
+The API returns a list of hotels that match the search criteria, which the app displays on the results page. Each hotel card displays the hotel's name, location, price, and a photo.
 
 
 ## Author
