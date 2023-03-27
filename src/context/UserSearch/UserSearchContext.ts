@@ -1,12 +1,12 @@
 import { createContext } from "react"
-import { Reservation } from "../../interfaces/users"
+import { ReservationUser } from "../../interfaces/users"
 
 export interface UserSearchContextProps {
      place?:  string ,
      checkIn?: string ,
      checkOut?: string ,
      dispatch:any,
-     reservation?: Reservation[],
+     reservation?: ReservationUser[],
 }
 
 export const UserSearchContext = createContext({} as UserSearchContextProps)

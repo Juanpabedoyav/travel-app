@@ -1,15 +1,10 @@
-export interface Reservation {
-    checkIn: string ,
-    checkOut: string ,
-    rooms: string ,
-    name: string ,
-    lastName: string ,
-    birthDate: string ,
-    gender: string ,
-    documentType: string ,
-    documentId: string ,
-    telephone: string ,
-    email: string ,
-    emergencyContact: string ,
-    emergencyContactPhone: string ,
+export interface ReservationUser {
+    to_name:              string;
+    lastName:             string;
+    birthdate:            Date;
+    gender:               string;
+    documentType:         string;
+    documentNumber:       string;
+    telephoneEmegergency: string;
+    emergency:            string;
 }
