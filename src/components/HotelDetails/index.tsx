@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { HotelContext } from "../../context/Hotels/HotelContext"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 import  { useRef } from "react"
 import emailjs from "@emailjs/browser"
@@ -8,17 +8,25 @@ import { FieldsReservationSc, FormReservationSc, InfoReservationSc, ReservationD
 
 export const HotelDetails = () => {
   const form = useRef<HTMLFormElement>(null)
-  const { checkIn, checkOut}= useContext(UserSearchContext)
+  const [input, setInput] = useState({})
+  const { checkIn, checkOut, dispatch}= useContext(UserSearchContext)
   const {id} =useParams()
   const {hotels} = useContext(HotelContext)
   const hotel = hotels.find(hotel => hotel.hotelId === id)
-
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement> | any) => {
+    setInput({
+      ...input,
+      [e.target.name] : e.target.value
+    })
+  }
 
   const sendEmail = (e: any) => {
     e.preventDefault()
     if (form.current == null) return
     emailjs.sendForm("service_md9kwx4", "template_rb84xii", form.current, "WNebh56wZOcLPnknR")
       .then((result) => {
+        localStorage.setItem("reservation", JSON.stringify(input))
+        dispatch({type: "NEW_RESERVATION", payload: {reservation: input}})
         console.log(result.text)
       }, (error) => {
         console.log(error.text)
@@ -93,16 +101,16 @@ export const HotelDetails = () => {
           {/* field name - lastname*/}
           <FieldsReservationSc>
             <label htmlFor="name">Name:</label>
-            <input type="text" name="to_name" id="to_name"  required/>
+            <input type="text" name="to_name" id="to_name"  required onChange={handleInput}/>
             <label htmlFor="lastName">Last Name:</label>
-            <input type="text" name="lastName" id="lastName"  required/>
+            <input type="text" name="lastName" id="lastName"  required onChange={handleInput}/>
           </FieldsReservationSc>
           {/* field  birthdate - gender*/}
           <FieldsReservationSc>
             <label htmlFor="birthdate">Birthdate:</label>
-            <input type="date" name="birthdate" id="birthdate"  required/>
+            <input type="date" name="birthdate" id="birthdate"  required onChange={handleInput}/>
             <label htmlFor="gender">Gender:</label>
-            <select name="gender" id="gender">
+            <select name="gender" id="gender" onChange={handleInput}>
               <option value="Female">Female</option>
               <option value="Male">Male</option>
             </select>
@@ -110,9 +118,9 @@ export const HotelDetails = () => {
           {/* field  documentType - documentNumber*/}
           <FieldsReservationSc>
             <label htmlFor="documentType">Document Type:</label>
-            <input type="text" name="documentType" id="documentType" required />
+            <input type="text" name="documentType" id="documentType" required  onChange={handleInput}/>
             <label htmlFor="documentNumber">Document ID:</label>
-            <input type="number" name="documentNumber" id="documentNumber" required />
+            <input type="number" name="documentNumber" id="documentNumber" required onChange={handleInput}/>
           </FieldsReservationSc>
           {/* field  email - telephone*/}
           <FieldsReservationSc>
@@ -126,9 +134,9 @@ export const HotelDetails = () => {
           {/* field  emergency - telephoneEmegergency*/}
           <FieldsReservationSc>
             <label htmlFor="emergency">Emergency Contact</label>
-            <input type="tel" name="emergency" id="emergency"  required/>
+            <input type="tel" name="emergency" id="emergency"  required onChange={handleInput}/>
             <label htmlFor="telephoneEmegergency">Telephone:</label>
-            <input type="tel" name="telephoneEmegergency" id="telephoneEmegergency"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required/>
+            <input type="tel" name="telephoneEmegergency" id="telephoneEmegergency"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required onChange={handleInput}/>
           </FieldsReservationSc>
           <button type="submit">reservar</button>
 
