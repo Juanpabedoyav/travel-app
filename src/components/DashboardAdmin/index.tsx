@@ -52,7 +52,7 @@ export const DashboardAdmin = () => {
   }
   useEffect(() => {
     getLocalStorage()
-  }, [])
+  }, [localStorage.getItem("newHotel")])
   
 
   return (
