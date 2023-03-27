@@ -1,26 +1,29 @@
 import { useContext, useState } from "react"
-import { CardAdmindSc, DashboardAdminSC, SectionAdminSc } from "./styles"
+import {  DashboardAdminSC, SectionAdminSc } from "./styles"
 import { FieldsReservationSc, FormReservationSc, ReservationDatesSc, ReservationRoomSc } from "../HotelDetails/styles"
 import { Modal } from "../Modal"
 import { Link, useParams } from "react-router-dom"
 import { HotelContext } from "../../context/Hotels/HotelContext"
-import { UserSearchContext } from "../../context/UserSearch/UserSearchContext"
 import { NewHotel } from "../../interfaces/hotels"
 import { Reservation } from "../Reservation"
 
 export const DashboardAdmin = () => {
+  // destructure context
   const {dispatch, newHotels} = useContext(HotelContext)
-
+  // state modal  
   const [open, setOpen] = useState(false)
+  // get id from url
   const {id} = useParams()
+  // state input
   const [input, setInput] = useState([] as NewHotel[])
+  // handler change input
   const handlerChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
     setInput({
       ...input,
       [e.target.name] : e.target.value
     })
   }
-
+  // handler submit
   const handlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch({type: "SET_NEWHOTELS", payload: input})
@@ -34,7 +37,7 @@ export const DashboardAdmin = () => {
         <button onClick={()=> setOpen(true)}>New Hotel</button>
         <Link to='reservations'>Reservations</Link>
       </div>
-       
+      {/* modal */}
       <Modal open={open} close={() => setOpen(false)}>
         <FormReservationSc onSubmit={handlerSubmit}>
     

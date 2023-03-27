@@ -24,7 +24,7 @@ const INITIAL_STATE: UserSearchState = {
 }
 
 export const UserSearchProvider = ({children} : UserSearchProviderPros) => {
-
+  // state and dispatch
   const [state, dispatch] = useReducer( userSearchReducer, INITIAL_STATE)
  
   return (

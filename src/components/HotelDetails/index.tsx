@@ -23,13 +23,14 @@ export const HotelDetails = () => {
   // Local Storage
   const localStorageHotel = JSON.parse(localStorage.getItem("selectedHotel") || "{}")
 
+  // Handler Input
   const handleInput = (e: React.ChangeEvent<HTMLInputElement> | any) => {
     setInput({
       ...input,
       [e.target.name] : e.target.value
     })
   }
-
+  // Send Email 
   const sendEmail = (e: any) => {
     e.preventDefault()
     if (form.current == null) return
@@ -42,6 +43,7 @@ export const HotelDetails = () => {
         console.log(error.text)
       })
   }
+  // set local storage when hotel is selected
   useEffect(() => {
     hotel && localStorage.setItem("selectedHotel", JSON.stringify(hotel))
   }, [hotel])

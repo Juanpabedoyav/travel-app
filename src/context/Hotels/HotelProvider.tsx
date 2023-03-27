@@ -11,6 +11,7 @@ export interface HotelState {
   hotels: Hotel[],
   newHotels: NewHotel[],
 } 
+// initial state
 const INITIAL_STATE: HotelState = {
   hotels: [],
   newHotels: [],
