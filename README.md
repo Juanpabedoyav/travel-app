@@ -1,46 +1,192 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Travel App
 
-## Available Scripts
+The Travel App is a Web site designed in React JS to help users plan their trips and make the most of their travels. With a simple and intuitive interface, the app allows users to search hotels
 
-In the project directory, you can run:
+## Requirements
 
-### `npm start`
+Getting Started
+To run the Travel App locally, follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone the repository to your local machine:
+bash
+Copy code
+git clone https://github.com/your-username/travel-app.git
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+####Install the dependencies:
+Copy code
+npm install
+Start the development server:
+sql
+Copy code
+npm start
+Open http://localhost:3000 in your browser to view the app.
 
-### `npm test`
+The Travel App was created with React.js 18 and Styled Components. If you encounter any issues, please refer to the React.js documentation and the Styled Components documentation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To build the app for production, run:
 
-### `npm run build`
+arduino
+Copy code
+npm run build
+This will create an optimized production build in the build directory.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+We recommend that you use a modern web browser to ensure the best user experience.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Programming paradigm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This code uses Object-Oriented Programming (OOP) paradigm in Python. The main class Receipt contains attributes and methods to extract the relevant data from the OCR output.
 
-### `npm run eject`
+## Assumptions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This code assumes that the input JSON file has OCR output in the "fullTextAnnotation" key of the "pages" array of the JSON object. If there is no OCR output in that location, the code will fail.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This code also assumes that the receipt has a certain structure, such as the presence of a date, address, invoice number, and item prices in the text. If these elements are not present or are in a different format, the code may not extract the correct information.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Coding Style
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This script was developed following the PEP8 style guide for Python code.
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The script can be run from the command line with the following command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  python receipt.py
+```
+Output file first ticket:
+
+```bash
+  {
+    "date": "10/12/2021",
+    "storeAddress": "AVENIDA CALLE 80 No 69Q- 50",
+    "invoiceNumber": "J122 249302",
+    "subtotal": 86160,
+    "total": 86160,
+    "lineItems": [
+        {
+            "sku": 8410270241140,
+            "description": "Aceite oliva SU",
+            "total": 27990,
+            "taxCode": "N"
+        },
+        {
+            "sku": 7707322030489,
+            "description": "Quinua QUINOACL",
+            "total": 7990,
+            "taxCode": "A"
+        },
+        {
+            "sku": 7707322030489,
+            "description": "Quinua QUINOACL",
+            "total": 7990,
+            "taxCode": "A"
+        },
+        {
+            "sku": 8004690751060,
+            "description": "Cous cous LA MO",
+            "total": 8990,
+            "taxCode": ""
+        },
+        {
+            "sku": 7702247011056,
+            "description": "YOGURT LIQUIDO",
+            "total": 2650,
+            "taxCode": "N"
+        },
+        {
+            "sku": 8410971033785,
+            "description": "Aceitunas EXCEL",
+            "total": 3490,
+            "taxCode": ""
+        },
+        {
+            "sku": 7707298470074,
+            "description": "Tallarines BEST",
+            "total": 8790,
+            "taxCode": "A"
+        },
+        {
+            "sku": 7702085003497,
+            "description": "Quinua molida D",
+            "total": 8690,
+            "taxCode": "A"
+        },
+        {
+            "sku": 7705326077837,
+            "description": "Tortillinas BIM",
+            "total": 5990,
+            "taxCode": "N"
+        },
+        {
+            "sku": 7702253800002,
+            "description": "Maiz pira TOT-R",
+            "total": 3590,
+            "taxCode": ""
+        }
+    ]
+}
+```
+## Testing
+
+This script has been tested using pytest, with the tests located in the test_receipt_ticket1.py and test_receipt_ticket2.py files. To run the tests, simply run the following command:
+
+```bash
+  pytest -v
+```
+Note that currently, the script is failing to obtain the tax codes for one of the example invoices.
+
+```bash
+  ================================================== test session starts ===================================================
+platform win32 -- Python 3.9.6, pytest-7.2.2, pluggy-1.0.0 -- d:\python 3.9.6\python.exe
+cachedir: .pytest_cache
+rootdir: ******
+collected 12 items
+
+test_receipt_ticket1.py::test_json_date PASSED                                                                      [  8%]
+test_receipt_ticket1.py::test_json_store_address PASSED                                                             [ 16%] 
+test_receipt_ticket1.py::test_json_invoice_number PASSED                                                            [ 25%] 
+test_receipt_ticket1.py::test_json_subtotal PASSED                                                                  [ 33%] 
+test_receipt_ticket1.py::test_json_total PASSED                                                                     [ 41%] 
+test_receipt_ticket1.py::test_json_line_items FAILED                                                                [ 50%]
+test_receipt_ticket2.py::test_json_date PASSED                                                                      [ 58%] 
+test_receipt_ticket2.py::test_json_store_address PASSED                                                             [ 66%] 
+test_receipt_ticket2.py::test_json_invoice_number PASSED                                                            [ 75%] 
+test_receipt_ticket2.py::test_json_subtotal PASSED                                                                  [ 83%] 
+test_receipt_ticket2.py::test_json_total PASSED                                                                     [ 91%]
+test_receipt_ticket2.py::test_json_line_items PASSED                                                                [100%] 
+
+======================================================== FAILURES ======================================================== 
+__________________________________________________ test_json_line_items __________________________________________________ 
+
+    def test_json_line_items():
+        """
+        Check if each line item in the JSON file generated by create_json_file()
+        is equal to the corresponding line item in the sample JSON file.
+        """
+        with open("./data/valid_ticket1.json", "r") as f:
+            true_data = json.load(f)
+        with open("./sample_J122_249302.json", "r") as f:
+            my_data = json.load(f)
+        for i in range(len(my_data)):
+            assert my_data['lineItems'][i]['sku'] \
+                == true_data['lineItems'][i]['sku']
+            assert my_data['lineItems'][i]['description'] \
+                == true_data['lineItems'][i]['description']
+            assert my_data['lineItems'][i]['total'] \
+                == true_data['lineItems'][i]['total']
+>           assert my_data['lineItems'][i]['taxCode'] \
+                == true_data['lineItems'][i]['taxCode']
+E           AssertionError: assert '' == 'A'
+E             - A
+
+test_receipt_ticket1.py:85: AssertionError
+================================================ short test summary info ================================================= 
+FAILED test_receipt_ticket1.py::test_json_line_items - AssertionError: assert '' == 'A'
+```
+
+
+## Author
+
+- [@samuelgit95](https://github.com/samuelgit95)
+
