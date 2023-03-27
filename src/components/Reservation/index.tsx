@@ -28,13 +28,15 @@ export const Reservation = () => {
       {
         hotelReservations.map((reservation) => (
           <CardAdmindSc key={reservation.documentNumber}>
-            <h1>{reservation?.to_name}</h1>
-            <p>{reservation?.lastName}</p>
-            {/* <p>{reservation?.email}</p> */}
-            {/* <p>{reservation.rooms}</p> */}
-            <p>{reservation?.gender}</p>
-            <p>{reservation?.documentType}</p>
-            {/* <p>{reservation.documentId}</p> */}
+            <h1>Name: {reservation?.to_name}</h1>
+            <p>Last Name:{reservation?.lastName}</p>
+            <p>Email:{reservation?.email}</p>
+            <p>Rooms:{reservation.rooms}</p>
+            <p>Gender: {reservation?.gender}</p>
+            <p>Document Type: {reservation?.documentType}</p>
+            <p>Document Number: {reservation?.documentNumber}</p>
+            <p>Emergency: {reservation?.emergency}</p>
+            <p>Telephone Emergency: {reservation?.telephoneEmegergency}</p>
           </CardAdmindSc>
         ))
       } 

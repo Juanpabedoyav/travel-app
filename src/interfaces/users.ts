@@ -7,4 +7,6 @@ export interface ReservationUser {
     documentNumber:       string;
     telephoneEmegergency: string;
     emergency:            string;
+    email:                string;
+    rooms:                string;
 }

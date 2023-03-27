@@ -39,8 +39,16 @@ export const DashboardAdmin = () => {
       setNewHotelDash(dataParse)
       // dispatch({type: "SET_NEWHOTELS", payload: dataParse})
     }
+  }
 
-
+  const deleteHotel = (id: string) => {
+    const data = localStorage.getItem("newHotel")
+    if(data) {
+      const dataParse = JSON.parse(data)
+      const filter = dataParse.filter((item: NewHotel) => item.id !== id)
+      localStorage.setItem("newHotel", JSON.stringify(filter))
+      setNewHotelDash(filter)
+    }
   }
   useEffect(() => {
     getLocalStorage()
@@ -123,7 +131,7 @@ export const DashboardAdmin = () => {
                   <p>{hotel.room} to {hotel.roomType}</p>
                   <p>Cost Base: {hotel.cost}  Tax: {hotel.tax}</p>
                 </section>
-                <button>Deshabilitar</button>
+                <button onClick={()=>deleteHotel(hotel.id)}>Deshabilitar</button>
               </CardAdmindSc>
             ))
             
