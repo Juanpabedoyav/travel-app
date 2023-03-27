@@ -84,23 +84,25 @@ export const InputSC = styled.input`
     }
 `
 export const ButtonSearchSC = styled.button`
-    border-radius:3rem ;
     height: 100%;
     width: 200px;
     cursor: pointer;
-    border: none;
-    background: linear-gradient(
-        ${props => props.theme.colors.main[600]},
-        ${props => props.theme.colors.main[500]},
-        ${props => props.theme.colors.main[500]},
-        ${props => props.theme.colors.main[500]});
- :hover{
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+    padding: 1rem;
+    background-color: #fff;
+    color: #fff;
+    border: 1px solid  ${props => props.theme.colors.main[600]};
     background:linear-gradient(
-        -50deg,
         ${props => props.theme.colors.main[600]},
-        ${props => props.theme.colors.main[300]},
-        ${props => props.theme.colors.main[200]},
-        ${props => props.theme.colors.main[200]});
-    border: 2px solid ${props => props.theme.colors.main[500]};
- }
+        ${props => props.theme.colors.main[500]},
+        ${props => props.theme.colors.main[500]},
+        ${props => props.theme.colors.main[500]});;
+        :hover{
+        color:  ${props => props.theme.colors.main[600]};
+        background: #fff;
+        border: 2px solid  ${props => props.theme.colors.main[600]};
+        }
 `

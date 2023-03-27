@@ -36,8 +36,8 @@ export const HotelDetails = () => {
     if (form.current == null) return
     emailjs.sendForm("service_md9kwx4", "template_rb84xii", form.current, "WNebh56wZOcLPnknR")
       .then((result) => {
-        localStorage.setItem("reservation", JSON.stringify(input))
-        dispatch({type: "NEW_RESERVATION", payload: {reservation: input}})
+        dispatch({type: "NEW_RESERVATION", payload: {reservation: [input]}})
+        localStorage.setItem("reservation", JSON.stringify([input]))
         console.log(result.text)
       }, (error) => {
         console.log(error.text)
