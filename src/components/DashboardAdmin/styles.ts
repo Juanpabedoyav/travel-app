@@ -55,18 +55,66 @@ a{
 export const SectionAdminSc = styled.section`
 width: 80%;
 margin: 1rem auto;
-padding: 1rem;
+padding: 2rem;
 display: flex;
 justify-content: flex-start;
-flex-direction: row;
+flex-direction: column;
 flex-wrap: wrap;
 gap: 1rem;
+h1{
+  font-size: 1.2rem;
+}
 `
 
 export const CardAdmindSc = styled.div`
-border: 1px solid black;
+box-shadow: 0 0 10px 0 rgba(0,0,0,0.8);
 width: 260px;
-height: 350px;
+padding: 1rem;
+.card-title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1.1rem;
+        color: #000;
+        h1{
+           display:block;
+            
+        }
+        
+    }
+    .card-details{
+        font-size: 1rem;   
+        color: #0000000;
+        p:last-child{
+            color: #000;
+            font-weight:700;
+        }
+    }
+img{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+  button{
+        margin: 0.4rem auto;
+        font-size: 1rem;
+        font-weight: 700;
+        color:${props => props.theme.colors.main[600]};
+        border-radius: 1rem;
+        border: 1px solid  ${props => props.theme.colors.main[600]};
+        box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+        background-color: #fff;
+        padding: 1rem;
+        :hover{
+        color: #fff;
+        background:linear-gradient(
+        ${props => props.theme.colors.main[600]},
+        ${props => props.theme.colors.main[500]},
+        ${props => props.theme.colors.main[500]},
+        ${props => props.theme.colors.main[500]});;
+        }
+    }
 `
 
 export const FormCreateHotelSc = styled.form`

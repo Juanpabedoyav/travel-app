@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { ReservationUser } from "../../interfaces/users"
-import { CardAdmindSc } from "../DashboardAdmin/styles"
+import { CardAdmindSc, SectionAdminSc } from "../DashboardAdmin/styles"
 
 export const Reservation = () => {
 
@@ -23,7 +23,8 @@ export const Reservation = () => {
 
 
   return (
-    <>
+    <SectionAdminSc>
+      <h1>Reservations</h1>
       {
         hotelReservations.map((reservation) => (
           <CardAdmindSc key={reservation.documentNumber}>
@@ -37,6 +38,6 @@ export const Reservation = () => {
           </CardAdmindSc>
         ))
       } 
-    </>
+    </SectionAdminSc>
   )
 }

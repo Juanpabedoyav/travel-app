@@ -102,10 +102,13 @@ export const DashboardAdmin = () => {
         </FormCreateHotelSc>
       </Modal>
       
+
       { id === "reservations" ?
         <Reservation/>      
         :
+        
         <SectionAdminSc>
+          <h1>New Hotels</h1>
           {
             newHotelDash?.map((hotel) =>(
               <CardAdmindSc key={hotel.id}>
@@ -120,11 +123,10 @@ export const DashboardAdmin = () => {
                   <p>{hotel.room} to {hotel.roomType}</p>
                   <p>Cost Base: {hotel.cost}  Tax: {hotel.tax}</p>
                 </section>
-                <button>Update</button>
                 <button>Deshabilitar</button>
               </CardAdmindSc>
             ))
-
+            
           }
         </SectionAdminSc>
       }
