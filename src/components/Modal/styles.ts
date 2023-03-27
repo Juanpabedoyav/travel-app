@@ -2,6 +2,9 @@ import styled from "styled-components"
 
 export const ModalSC = styled.div`
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   top: 0;
   left: 0;
   right: 0;

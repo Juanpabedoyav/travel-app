@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
-import {  DashboardAdminSC, SectionAdminSc } from "./styles"
-import { FieldsReservationSc, FormReservationSc, ReservationDatesSc, ReservationRoomSc } from "../HotelDetails/styles"
+import {  DashboardAdminSC, FieldsCreateHotelActionsSc, FieldsCreateHotelSc, FormCreateHotelSc, SectionAdminSc } from "./styles"
+import { ReservationRoomSc } from "../HotelDetails/styles"
 import { Modal } from "../Modal"
 import { Link, useParams } from "react-router-dom"
 import { HotelContext } from "../../context/Hotels/HotelContext"
@@ -38,10 +38,9 @@ export const DashboardAdmin = () => {
         <Link to='reservations'>Reservations</Link>
       </div>
       {/* modal */}
-      <Modal open={open} close={() => setOpen(false)}>
-        <FormReservationSc onSubmit={handlerSubmit}>
-    
-          <ReservationRoomSc>
+      <Modal open={open}>
+        <FormCreateHotelSc onSubmit={handlerSubmit}>
+          <FieldsCreateHotelSc>
             <label htmlFor="room">Rooms Available:</label>
             <select name="room" id="room" onChange={handlerChange}>
               <option value={1}>1 Room</option>
@@ -54,29 +53,34 @@ export const DashboardAdmin = () => {
               <option value={"VIP"}>VIP</option>
               <option value={"VIP"}>VIP</option>
             </select>
+          </FieldsCreateHotelSc>
+          <FieldsCreateHotelSc>
             <label htmlFor="price">Price:</label>
             <input type="number" name="price" id="price"  required onChange={handlerChange}/>
-          </ReservationRoomSc>
-
+          </FieldsCreateHotelSc>
           <hr></hr>
           {/* field name - lastname*/}
-          <FieldsReservationSc>
+          <FieldsCreateHotelSc>
             <label htmlFor="id">Hotel ID:</label>
             <input type="number" name="id" id="id"  required onChange={handlerChange}/>
             <label htmlFor="name">Hotel Name:</label>
             <input type="text" name="name" id="name"  required  onChange={handlerChange}/>
-          </FieldsReservationSc>
-          <FieldsReservationSc>
+          </FieldsCreateHotelSc>
+          <FieldsCreateHotelSc>
             <label htmlFor="cost">Cost:</label>
             <input type="number" name="cost" id="cost"  required  onChange={handlerChange}/>
             <label htmlFor="tax">Tax:</label>
             <input type="number" name="tax" id="tax"  required  onChange={handlerChange}/>
-          </FieldsReservationSc>
-          <label htmlFor="img">Url Image:</label>
-          <input type="url" name="img" id="img"  required onChange={handlerChange}/>
-          <button type="submit">Create Hotel</button>
-          <button onClick={()=>setOpen(false)}>Close</button>
-        </FormReservationSc>
+          </FieldsCreateHotelSc>
+          <FieldsCreateHotelSc>
+            <label htmlFor="img">Url Image:</label>
+            <input type="url" name="img" id="img"  required onChange={handlerChange}/>
+          </FieldsCreateHotelSc>
+          <FieldsCreateHotelActionsSc>
+            <button type="submit">Create Hotel</button>
+            <button onClick={()=>setOpen(false)}>Close</button>
+          </FieldsCreateHotelActionsSc>
+        </FormCreateHotelSc>
       </Modal>
       
       { id === "reservations" ?
